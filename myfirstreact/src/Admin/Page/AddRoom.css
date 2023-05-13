@@ -1,0 +1,70 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.AddRoomForm{
+    margin: 30px auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.AddRoomFormHeading{
+    background-color: rgb(140, 180, 180);
+    color: white;
+}
+
+.AddRoomButton{
+ width: 300px;
+ margin: 20px auto;
+ background-color: rgb(145, 190, 190);
+ color: aliceblue;
+}
+.AddRoomButton:hover{
+background-color: rgb(206, 230, 230);
+color: black;
+}
+ */
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container1{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    width: 85%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgb(222, 234, 239);
+}
+.AdmissionH3{
+    background-image: linear-gradient(to right, rgb(58, 58, 188),purple,rgb(45, 130, 130));
+
+}
+.AdmissionH3 h3{
+    text-align: center;
+    color: white;
+}
+.GenderMaterial{
+    display: flex;
+    justify-content: space-around;
+}
+.StudentAdmissionButton{
+margin: auto;
+text-align: center;
+margin-top: 20px;
+
+}
+.StudentAdmissionSubmitForm{
+background-image: linear-gradient(to right, rgb(58, 58, 188),purple,rgb(45, 130, 130));
+ width: 20%;
+
+
+}
+.StudentAdmissionSubmitForm:hover{
+background-image: linear-gradient(to right, rgb(31, 31, 85),prgb(103, 45, 103)rgb(23, 54, 54));
+color: rgb(155, 137, 137);
+}

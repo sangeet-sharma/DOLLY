@@ -1,0 +1,79 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    margin:50px;
+    flex-wrap: wrap;
+}
+.searchItem2
+{
+    border:1px solid lightgray;
+    padding:3px;
+    border-radius: 5px;
+    gap:15px;
+    margin-bottom: 20px;
+    width:400px;
+    align-items: center;
+    
+    text-align: center;
+}
+
+.siImg
+{
+    width:300px;
+    height:200px;
+    object-fit: cover;
+}
+
+.siDesc
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex:2;
+}
+
+.siTitle
+{
+    font-size: 30px;
+    color:goldenrod;
+}
+
+.siPrice
+{
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.siCap
+{
+    font-size: 18px;
+}
+
+.siPrice
+{
+    font-size: 18px;
+}
+
+.siType
+{
+    font-size: 18px;
+}
+
+.siFeatures
+{
+    font-size: 18px;
+}
+
+.siFood
+{
+    font-size: 18px;
+}
+
+.siButton
+{
+    background-color: #36486b;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 12px;
+}

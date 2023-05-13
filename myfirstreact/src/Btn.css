@@ -1,0 +1,10 @@
+.container{
+    margin-left: 8%;
+}
+.col-md-3{
+    margin-left: 5%;
+}
+
+.col-md-3:hover img{
+    transform: scale(1.2);
+}

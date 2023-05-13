@@ -1,0 +1,56 @@
+fieldset{
+    height:60%;
+    width:40%;
+    margin-top:0px;
+}
+.rt{
+    margin:0;
+    background-color: antiquewhite;
+}
+input[type=text]{
+    resize: vertical;
+    width:100%;
+    border-bottom:solid;
+    padding:10px;
+    text-align:left;
+    font-style:oblique;
+    font-family:'Times New Roman', Times, serif;
+}
+input[type=email]{
+    resize: vertical;
+    width:100%;
+    border-bottom:solid;
+    padding:10px;
+    text-align:left;
+    font-style:oblique;
+    font-family:'Times New Roman', Times, serif;
+}
+input[type=password]{
+    resize: vertical;
+    width:100%;
+    border-bottom:solid;
+    padding:10px;
+    text-align:left;
+    font-style:oblique;
+    font-family:'Times New Roman', Times, serif;
+}
+.bts{
+    width:100%;
+    padding:8px;
+    background-color:#ffff;
+    font-style:oblique;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bold;
+    border-radius:10px;
+    margin-bottom:2%;
+    border-color:black solid;
+    /* border:2px; */
+    border:2px solid black;
+    box-sizing: border-box;
+}
+.ft{
+    font-style: oblique;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-align:left;
+}
