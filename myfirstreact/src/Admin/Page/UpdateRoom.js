@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
  import InputGroup from 'react-bootstrap/InputGroup';
  import Row from 'react-bootstrap/Row';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 const UpdateRoom = () => {
     const [price,setPrice] = useState("")
     const [roomType,setRoomType] = useState("")
@@ -38,8 +39,22 @@ fetch(`http://localhost:4000/UpadateRoom/${id}`).then((response)=>{
     getRoomUpdate()
    },[])
 
-   const handleSubmit =()=>{
+  
 
+   const handleSubmit =(e)=>{
+    e.preventDefault()
+      axios.put(`http://localhost:4000/roomUpdate/${id}`,{price,
+      roomType,
+      roomCapacity,
+      Facility,
+      Feature,
+      Food
+    }).then(response=>{
+      console.log(response)
+    }).catch(err=>{
+      console.log(err)
+    })
+     
    }
 
   return (
