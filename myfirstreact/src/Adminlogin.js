@@ -3,16 +3,28 @@ import {Link, useNavigate} from 'react-router-dom'
 // import Signup from './Signup';
 // import axios from 'axios';
 import './Adminlogin.css';
+import axios from 'axios';
 
 function Adminlogin() {
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
+  const [adminid,setadminid] = useState("")
+  const [adminpassword,setadminPassword] = useState("")
   const navigate = useNavigate();
 
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-  console.log({email,password})
+  // console.log({email,password})
+  axios.post("http://localhost:4000/Adminlogin",{adminid,adminpassword})
+  .then(response=>{
+    if(response.data.status==="login successfully"){
+      alert("Login Successfully....")
+      localStorage.setItem("token",true)
+      navigate("/AddRoom")
+    }
+    console.log(response)
+  }).catch(err=>{
+    console.log(err)
+  })
   }
 
   return (
@@ -23,16 +35,16 @@ function Adminlogin() {
     <form onSubmit={handleSubmit} action="">
        <div className="ft">
               <label htmlFor="email"><strong>Email</strong></label>
-              <input type="email" name='email'
-              onChange={(e)=>setEmail(e.target.value)}
-               value={email} placeholder='Enter Email' />
+              <input type="email" name='adminid'
+              onChange={(e)=>setadminid(e.target.value)}
+               value={adminid} placeholder='Enter Email' />
           </div>
           <div className="ft">
               <label htmlFor="password"><strong>Password</strong></label>
               <input type="password"
-               name='password'
-               onChange={(e)=>setPassword(e.target.value)}
-                value={password}
+               name='adminpassword'
+               onChange={(e)=>setadminPassword(e.target.value)}
+                value={adminpassword}
               placeholder='Enter Password' />
           </div>
           <br></br>

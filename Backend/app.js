@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const mysql=require("./db_connection/connection")
 const express = require("express")
 const cors = require("cors")
@@ -41,56 +40,10 @@ app.post("/signup",(req,resp)=>{
      else{
             return resp.json(result)
          }
-=======
-const mysql = require("./db_connection/connection");
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-app.use(express.json());
-app.use(cors());
-
-app.post("/signup", (req, resp) => {
-  const sql = "INSERT INTO login(`name`,`email`,`password`) VALUES(?,?,?)";
-  mysql.query(
-    sql,
-    [req.body.name, req.body.email, req.body.password],
-    (error, result) => {
-      if (error) {
-        return resp.json("Error", error);
-      } else {
-        return resp.json(result);
-      }
-    }
-  );
-});
-
-app.post("/login", (req, resp) => {
-  const sql = "SELECT * FROM login WHERE email = ? AND password =?";
-  mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
-    if (error) {
-      return resp.json("error");
-    }
-    if (result.length > 0) {
-      return resp.json({ status: "login successfully" });
-    } else {
-      return resp.json({ Message: "login Failed..." });
-    }
-  });
-});
-
-app.get("/getallroom", (req, res) => {
-  const data = "SELECT * FROM dummy";
-  mysql.query(data, (error, result) => {
-    if (error) return res.json(error);
-    return res.send(result);
-  });
-});
->>>>>>> 76277814a80917a0e0875dfd337a163ff637f9b4
     
-// app.post("/postCategory",(req,resp)=>{
+   })
+})
 
-<<<<<<< HEAD
 app.post("/login",(req,resp)=>{
     const sql = "SELECT * FROM login WHERE email = ? AND password =?";
     mysql.query(sql,[req.body.email,req.body.password],(error,result)=>{
@@ -194,16 +147,21 @@ app.post("/AddRoom/Post",upload.single("file"),(req,resp)=>{
 
 mysql.query(`UPDATE addroom SET price`)    
   })
-=======
-//     const sql = 'INSERT INTO category(`name`,`roomtype`,`roomfacility`,`checkInDate`,`checkOutDate`) VALUES(?,?,?,?,?)'
-//     mysql.query(sql,[req.body.name,req.body.roomtype,req.body.roomfacility,req.body.checkInDate,req.body.checkOutDate],(error,result)=>{
-//         if(error){
-//             return resp.json(error)
-//         }
-//         else{
-//             return resp.json(result)
-//         }
-//     })
-// })
->>>>>>> 76277814a80917a0e0875dfd337a163ff637f9b4
+  // ********************admin login api**********
+  app.post("/Adminlogin",(req,resp)=>{
+    const sql = "SELECT * FROM adminlogin WHERE adminid = ? AND adminpassword =?";
+    mysql.query(sql,[req.body.adminid,req.body.adminpassword],(error,result)=>{
+        if(error){
+            return resp.json("error")
+        }
+        if(result.length > 0){
+            return resp.json({ status: "login successfully"})
+        }
+        else{
+            return resp.json({ Message: "login Failed..."})
+        }
+
+    })
+})
+  
 app.listen(4000)

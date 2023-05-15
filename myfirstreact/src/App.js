@@ -39,7 +39,7 @@ function App() {
 <>
 
     <BrowserRouter>
-      <Nav/>   
+       <Nav/>   
       <Routes>
          {/* <Route path='/' element={<Nav />}></Route> 
          <Route path="/" element={<Home />} />
@@ -59,9 +59,9 @@ function App() {
           <Route path="/SearchItem2" element={<SearchItem2 />} />
         <Route path="/CheckHotelPage" element={<CheckHotelPage />} />  
 
-  {/* <Route path="/AddRoom" exact element={<AddRoom/>}></Route>
+  <Route path="/AddRoom" exact element={<AddRoom/>}></Route>
   <Route path="/updateRoom/:id" exact element={<UpdateRoom/>}></Route>
-  <Route path="/TotalRoom" exact element={<TotalRoom/>}></Route>  */}
+  <Route path="/TotalRoom" exact element={<TotalRoom/>}></Route> 
   {/* <Route path="/add" exact element={<Add/>}></Route>  */}
 
         
@@ -70,7 +70,7 @@ function App() {
   <Route path="/add" exact element={<Add/>}></Route> */}
 
       </Routes>
-        <Footer />   
+        {/* <Footer />    */}
     </BrowserRouter>
         </>
  );
