@@ -25,7 +25,8 @@ import CheckHotelPage from './CheckHotelPage';
 import Footer from './Footer';
 import About from './About/About';
 import Signup from './Reg/Signup'
-import Login from './Reg/Login'
+import Login from './Reg/Login';
+import Adminlogin from './Adminlogin';
 
 import AddRoom from './Admin/Page/AddRoom';
 import Update from './Admin/Page/Update';
@@ -38,27 +39,29 @@ function App() {
 <>
 
     <BrowserRouter>
-     {/* <Nav/>  */}
+      <Nav/>  
       <Routes>
          {/* <Route path='/' element={<Nav />}></Route> 
          <Route path="/" element={<Home />} />
         <Route path="/Category" element={<Category/>} /> */}
-        {/* <Route path="/" element={<Home />} />
+        
+         <Route path="/" element={<Home />} />
         <Route path="/Category" element={<Category/>} /> 
          <Route path="/Btn" element={<Btn />} />
           <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login/>}/>
-          <Route path="/Signup" element={<Signup/>} /> 
+          <Route path="/Signup" element={<Signup/>} />
+          <Route path="/Adminlogin" element={<Adminlogin />} /> 
           
           <Route path="/SearchItem" element={<SearchItem />} />
           <Route path="/SearchItem1" element={<SearchItem1 />} />
           <Route path="/SearchItem2" element={<SearchItem2 />} />
-        <Route path="/CheckHotelPage" element={<CheckHotelPage />} />  */}
+        <Route path="/CheckHotelPage" element={<CheckHotelPage />} />  
 
- <Route path="/AddRoom" exact element={<AddRoom/>}></Route>
+ {/* <Route path="/AddRoom" exact element={<AddRoom/>}></Route>
   <Route path="/updateRoom/:id" exact element={<UpdateRoom/>}></Route>
-  <Route path="/TotalRoom" exact element={<TotalRoom/>}></Route>
+  <Route path="/TotalRoom" exact element={<TotalRoom/>}></Route> */}
   {/* <Route path="/add" exact element={<Add/>}></Route>  */}
 
         
@@ -67,7 +70,7 @@ function App() {
   <Route path="/add" exact element={<Add/>}></Route> */}
 
       </Routes>
-      {/* <Footer />  */}
+       <Footer />  
     </BrowserRouter>
         </>
  );

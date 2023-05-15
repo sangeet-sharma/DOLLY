@@ -1,4 +1,12 @@
-export const Menuitems=[{
+export const Menuitems=[
+//     title: "Admin",
+//     url: "/Adminlogin",
+//     cName:"nav-links",
+//     // icon:"fa-solid fa-house-user"
+// }
+{ 
+    
+    
     title: "Home",
     url: "/",
     cName:"nav-links",
@@ -27,4 +35,10 @@ export const Menuitems=[{
     url: "/Signup ",
     cName:"nav-links-mobile",
    
-}]; 
+},
+{
+    title: "Admin",
+    url: "/Adminlogin",
+    cName:"nav-links",     
+}
+]; 
