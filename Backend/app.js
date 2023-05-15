@@ -163,5 +163,37 @@ mysql.query(`UPDATE addroom SET price`)
 
     })
 })
+
+app.put("/roomUpdate/:id",(req,resp)=>{
+var id=req.params.id;
+var price=req.body.price;
+var roomType=req.body.roomType;
+var roomCapacity=req.body.roomCapacity;
+var Facility=req.body.Facility;
+var Feature=req.body.Feature;
+var Food=req.body.Food;
+
+mysql.query(
+  `Update addroom SET price=?,roomType=?,roomCapacity=?,Facility=?,Feature=?,Food=?
+  where id='${id}'`,
+  [
+    price,
+    roomType,
+    roomCapacity,
+    Facility,
+    Feature,
+    Food
+  ],
+  (error,result)=>{
+    if(error)
+    {
+      return resp.json(error);
+    }else{
+      return resp.json(result);
+    }
+  }
+);
+
+});
   
 app.listen(4000)
