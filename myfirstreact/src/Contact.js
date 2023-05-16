@@ -13,7 +13,8 @@ const Contact=()=>{
     const sendEmail = (e) => {
         e.preventDefault();
     
-        emailjs.sendForm('service_kyca41p', 'template_hd7jcyu', form.current, 'fTW8nxo_BOOe8N6Is')
+        // emailjs.sendForm('service_kyca41p', 'template_hd7jcyu', form.current, 'fTW8nxo_BOOe8N6Is')
+        emailjs.sendForm('service_ne0hzzo', 'template_w76s0yc', form.current, 's3ogM0NMr9PTZ91AE')
           .then((result) => {
               console.log(result.text);
           }, (error) => {

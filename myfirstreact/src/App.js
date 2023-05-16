@@ -70,7 +70,7 @@ function App() {
   <Route path="/add" exact element={<Add/>}></Route> */}
 
       </Routes>
-        {/* <Footer />    */}
+         {/* <Footer />    */}
     </BrowserRouter>
         </>
  );
