@@ -72,7 +72,7 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
     // </div>
     // </div>
     <>
-    <h1>jshfdfuhdu</h1>
+    <h1>Our Rooms Facility</h1>
     {
       roomList.map((result,id)=>{
         return (
@@ -85,16 +85,16 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
           RoomType: {result.roomType}
         </Card.Text>
         <Card.Text>
-          RoomType: {result.roomType}
+          RoomCapacity: {result.roomCapacity}
         </Card.Text>
         <Card.Text>
-          RoomType: {result.roomType}
+          Facility: {result.Facility}
         </Card.Text>
         <Card.Text>
-          RoomType: {result.roomType}
+          Feature: {result.Feature}
         </Card.Text>
         <Card.Text>
-          RoomType: {result.roomType}
+          Food: {result.Food}
         </Card.Text>
         <Button variant="primary">Booking Now</Button>
       </Card.Body>
