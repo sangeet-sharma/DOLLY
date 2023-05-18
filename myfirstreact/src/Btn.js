@@ -6,7 +6,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
  import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Btn.css';
-import CheckHotelPage from './CheckHotelPage';
+// import CheckHotelPage from './CheckHotelPage';
 export default function Btn() {
   const [roomList,SetRoomList] = useState([])
 
@@ -97,8 +97,8 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
         <Card.Text>
           Food: {result.Food}
         </Card.Text>
-        {/* <Button variant="primary">Booking Now</Button> */}
-        <Link type="btn" to='/CheckHotelPage'>Book Now</Link>
+        <Link type="btn" to='/CheckHotelPage'> <Button variant="primary">Booking Now</Button></Link> 
+    
       </Card.Body>
     </Card>
           </div>
