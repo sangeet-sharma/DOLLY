@@ -22,7 +22,7 @@ import SearchItem from './SearchItem';
 import SearchItem1 from './SearchItem1';
 import SearchItem2 from './SearchItem2';
 import CheckHotelPage from './CheckHotelPage';
-import Footer from './Footer';
+//mport Footer from './Footer';
 import About from './About/About';
 import Signup from './Reg/Signup'
 import Login from './Reg/Login';
@@ -70,7 +70,7 @@ function App() {
   <Route path="/add" exact element={<Add/>}></Route> */}
 
       </Routes>
-         {/* <Footer />    */}
+         <Footer />   
     </BrowserRouter>
         </>
  );

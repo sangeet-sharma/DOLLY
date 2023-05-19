@@ -7,6 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
  import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Btn.css';
+// import CheckHotelPage from './CheckHotelPage';
 import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
@@ -116,7 +117,8 @@ function filterByDate(date)
         <Card.Text>
           Food: {result.Food}
         </Card.Text>
-        <Button variant="primary">Booking Now</Button>
+        <Link type="btn" to='/CheckHotelPage'> <Button variant="primary">Booking Now</Button></Link> 
+    
       </Card.Body>
     </Card>
     <div>
@@ -128,7 +130,9 @@ function filterByDate(date)
         )
       })
     }
+{/* <Link type="btn" className="siButton" to='/CheckHotelPage'>Book Now</Link> */}
 
     </>
   )
 };
+
