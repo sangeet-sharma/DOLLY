@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
  import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Btn.css';
-// import CheckHotelPage from './CheckHotelPage';
+//import CheckHotelPage from './CheckHotelPage';
 import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
