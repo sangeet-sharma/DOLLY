@@ -88,5 +88,4 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
     </div>
   )
 }
-
 export default TotalRoom

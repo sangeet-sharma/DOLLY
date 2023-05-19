@@ -10,11 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("uploads"));
 app.use(cors())
-
-
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, "uploads/photos");
+destination: (req, file, cb) => {
+cb(null, "uploads/photos");
     },
     filename: (req, file, cb) => {
       cb(
@@ -193,7 +191,5 @@ mysql.query(
     }
   }
 );
-
-});
-  
+}); 
 app.listen(4000)

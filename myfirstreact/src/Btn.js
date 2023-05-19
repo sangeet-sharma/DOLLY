@@ -1,12 +1,22 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 import { useEffect } from 'react';
+import moment from 'moment';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
- import { Link } from 'react-router-dom';
+//  import { Link } from 'react-router-dom';
  import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Btn.css';
+import { DatePicker, Space } from 'antd';
+
+const { RangePicker } = DatePicker;
 export default function Btn() {
+  const [show, setShow] = useState(false);
+  const [fromDate , setfromDate]=useState();
+  const [toDate , settoDate]=useState();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [roomList,SetRoomList] = useState([])
 
   const GetRoomList  = async()=>{
@@ -20,7 +30,12 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
   useEffect(()=>{
    GetRoomList()
   },[])
-
+function filterByDate(date)
+{
+ 
+  setfromDate(moment(date[0]).format("DD-MM-YYYY"))
+  settoDate(moment(date[1]).format("DD-MM-YYYY"))
+}
   return (
     // <div>
     //   {/* <Button variant="danger">Danger</Button>{' '} */}
@@ -77,6 +92,11 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
       roomList.map((result,id)=>{
         return (
           <div  >
+            <div >
+            <div>
+          <RangePicker format={"DD/MM/YYYY"} onChange={filterByDate}/>
+           </div>
+            </div>
           <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src={`http://localhost:4000/photos/${result.file}`} />
       <Card.Body>
@@ -99,7 +119,12 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
         <Button variant="primary">Booking Now</Button>
       </Card.Body>
     </Card>
+    <div>
+      
+    </div>
           </div>
+          
+          
         )
       })
     }
