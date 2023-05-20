@@ -38,9 +38,6 @@ fetch(`http://localhost:4000/UpadateRoom/${id}`).then((response)=>{
    useEffect(()=>{
     getRoomUpdate()
    },[])
-
-  
-
    const handleSubmit =(e)=>{
     e.preventDefault()
       axios.put(`http://localhost:4000/roomUpdate/${id}`,{price,
