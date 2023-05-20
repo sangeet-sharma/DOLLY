@@ -12,15 +12,17 @@ function Bookingsrc({ match }) {
   const { id } = useParams();
 
   const [rooms, setroom] = useState(" ");
+  const [checkInDate, setCheckInDate] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
   
-  const [fromDate, setfromDate] = useState(" ");
-  const [toDate, settoDate] = useState(" ");
- 
-  //   const sd = moment(fromDate, "DD-MM-YYYY");
-  //   const ed = moment(toDate, "DD-MM-YYYY");
+  
+    const sd = moment(checkInDate, "DD-MM-YYYY");
+  const ed = moment(checkOutDate, "DD-MM-YYYY");
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
-  //const totaldays = moment.duration(ed.diff(sd)).asDays();
+  // const totaldays = moment.duration(ed.diff(sd)).asDays();
+  const totaldays = moment(checkOutDate, "YYYY-MM-DD").diff(moment(checkInDate, "YYYY-MM-DD"), 'days');
+
   useEffect(() => {
     try {
       const data = axios.post("http://localhost:4000/getroombyid", { id });
@@ -29,10 +31,7 @@ function Bookingsrc({ match }) {
       console.log(err);
     }
   }, []);
-  function filterByDate(date) {
-    setfromDate(moment(date[0]).format("DD-MM-YYYY"));
-    settoDate(moment(date[1]).format("DD-MM-YYYY"));
-  }
+ 
 
   return (
     <>
@@ -42,13 +41,28 @@ function Bookingsrc({ match }) {
         <div className="bcst2">
           <h>RoomId={id}</h>
           <div className="col-md-5">
+            
             <div>
-              <RangePicker format={"DD-MM-YYYY"} onChange={filterByDate} />
-            </div>
+          <label className='ro'>
+            Check-in date:
+            <input type="date" name='checkInDate' value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} />
+          </label>
+        </div>
+
+        <br></br>
+
+        <div>
+          <label className='ro'>
+            Check-out date:
+            <input type="date" name='checkOutDate' value={checkOutDate} onChange={(e) => setCheckOutDate(e.target.value)} />
+          </label>
+        </div>
+
+        <br></br>
             <p>Name:</p>
-            <p>fromDate:{fromDate}</p>
-            <p>ToDate:{toDate}</p>
-            <p> TotalDyas: </p>
+            <p>fromDate:{checkInDate}</p>
+            <p>ToDate:{ checkOutDate}</p>
+            <p> TotalDyas:{totaldays} </p>
           </div>
         </div>
       </div>
