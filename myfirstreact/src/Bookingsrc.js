@@ -34,10 +34,10 @@ function Bookingsrc({ match }) {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const response = (await axios.post("http://localhost:4000/getroombyid", {
-          roomid: id,
-        }));
-        setroom(response.data);
+        const data = (await axios.post("http://localhost:4000/getroombyid", {
+          roomid:id,
+        })).data;
+        setroom(data);
       };
       fetchData();
     } catch (err) {
