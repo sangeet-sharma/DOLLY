@@ -14,13 +14,7 @@ function Bookingsrc({ match }) {
   const [room, setroom] = useState([]);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-  const [price, setPrice] = useState("");
-  const [roomType, setRoomType] = useState("");
-  const [roomCapacity, setRoomCapacity] = useState("");
-  const [Facility, setFacility] = useState("");
-  const [Feature, setFeature] = useState("");
-  const [Food, SetFood] = useState("");
-  const [file, setFile] = useState("");
+  
   const sd = moment(checkInDate, "DD-MM-YYYY");
   const ed = moment(checkOutDate, "DD-MM-YYYY");
   // const handleClose = () => setShow(false);
@@ -72,12 +66,12 @@ function Bookingsrc({ match }) {
             <div>
               <label className="ro">
                 Check-in date:
-                {/* <input
+                 <input
                   type="date"
                   name="checkInDate"
                   value={checkInDate}
                   onChange={(e) => setCheckInDate(e.target.value)}
-                /> */}
+                /> 
               </label>
             </div>
 
@@ -86,12 +80,12 @@ function Bookingsrc({ match }) {
             <div>
               <label className="ro">
                 Check-out date:
-                {/* <input
+                 <input
                   type="date"
                   name="checkOutDate"
                   value={checkOutDate}
                   onChange={(e) => setCheckOutDate(e.target.value)}
-                /> */}
+                /> 
               </label>
             </div>
 
