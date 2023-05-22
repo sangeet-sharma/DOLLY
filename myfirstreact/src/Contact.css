@@ -52,14 +52,19 @@ p{
     height: calc(2.5rem +.75rem + 2px);
 }
 
-.btn
+.bt
 {
     /* color:rgb(216, 138, 138); */
-    border: 0px  white;
-    display: inline;
+    /* border: 0px  white; */
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width:30%;
+    border-block: Solid black;
 }
 
-.btn:hover
+.bt:hover
 {
-color: white;
+color:#fff;
 }

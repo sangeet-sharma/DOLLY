@@ -78,14 +78,14 @@ const Contact=()=>{
                         <textarea 
                         className="form-control rounded-0" id="message"
                          name="message"
-                         placeholder="Message"
+                         placeholder="Write Your Message Here......"
                          rows='5'>
                          </textarea>
                          <br/> 
                         <Row>
                             <Col Lg='12' className="form-group">
                                 {/* <button className="btn ac_btn" type="submit">Send</button> */}
-                                <button varient="primary">Send</button>
+                                <button className="bt">Send</button>
                             </Col>
                         </Row>
                     </form>
