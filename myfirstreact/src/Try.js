@@ -33,7 +33,7 @@ function Try({ match }) {
       <div className="col-md-5">
              <div>
                <label className="ro">
-                 Check-in date:
+                 From -date:
                   <input
                    type="date"
                    name="checkInDate"
@@ -47,7 +47,7 @@ function Try({ match }) {
 
              <div>
                <label className="ro">
-                 Check-out date:
+                 To-date:
                   <input
                    type="date"
                    name="checkOutDate"
