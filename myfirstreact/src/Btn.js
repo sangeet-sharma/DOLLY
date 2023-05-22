@@ -85,11 +85,7 @@ export default function Btn() {
       {roomList.map((result, id) => {
         return (
           <div>
-            <div>
-              <div>
-                <RangePicker format={"DD/MM/YYYY"} onChange={filterByDate} />
-              </div>
-            </div>
+            
             <Card style={{ width: "18rem" }}>
               <Card.Img
                 variant="top"
