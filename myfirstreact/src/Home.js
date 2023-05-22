@@ -1,13 +1,14 @@
-// import Nav from './Nav';
+import Nav from './Nav';
 // import Hero from './Hero';
 import Destination from './Destination';
 import Trip from "./Trip";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
-// import Footer from "./Footer";
+import Footer from "./Footer";
 function Home() {
     return (
         <>
+        <Nav/>
             <Carousel>
                 <Carousel.Item>
                     <img
@@ -66,7 +67,7 @@ function Home() {
         /> */}
             <Destination />
             <Trip />
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

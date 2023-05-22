@@ -2,10 +2,14 @@ import React from 'react'
 import './About.css';
 import im from "./img/kritika.jpg"
 import im1 from "./img/sangeet.jpeg"
+import Nav from "./Nav";
+import Footer from "./Footer";
 
 export default function About() {
     // let message='Hotel Management System';
   return (
+    <>
+    <Nav/>
     <section className="section-white">
         <div className="container">
             <div className="row">
@@ -78,6 +82,8 @@ export default function About() {
         </div>
 
     </section>
+    <Footer/>
+    </>
   )
 }
 

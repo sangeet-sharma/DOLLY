@@ -1,6 +1,7 @@
 
 import emailjs from '@emailjs/browser';
-//import Nav from './Nav';
+import Nav from './Nav';
+import Footer from './Footer';
 import { useRef } from 'react';
 import { Container,Row,Col } from "react-bootstrap";
 import { contactConfig } from "./content_opinion";
@@ -23,7 +24,10 @@ const Contact=()=>{
           e.target.reset();
       };
     return(
+        <>
+         <Nav/>
         <div className='me'>
+           
         <Container>
             <Row className="mb-5 mt-3">
                 <Col Lg='8'>
@@ -89,6 +93,8 @@ const Contact=()=>{
         </Container>
     
           </div>
+          <Footer/>
+          </>
         )
         }
 

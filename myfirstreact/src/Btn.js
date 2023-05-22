@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./Btn.css";
+import Nav from "./Nav";
+import Footer from "./Footer";
 //import CheckHotelPage from './CheckHotelPage';
 import { DatePicker, Space } from "antd";
 
@@ -81,6 +83,7 @@ export default function Btn() {
     // </div>
     // </div>
     <>
+    <Nav/>
       <h1>Our Rooms Facility</h1>
       {roomList.map((result, id) => {
         return (
@@ -113,6 +116,7 @@ export default function Btn() {
         );
       })}
       {/* <Link type="btn" className="siButton" to='/CheckHotelPage'>Book Now</Link> */}
+    <Footer/>
     </>
   );
 }

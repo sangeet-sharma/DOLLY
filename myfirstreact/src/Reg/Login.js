@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 // import Signup from './Signup';
 import axios from 'axios';
+import Nav from '../Nav';
+import Footer from '../Footer';
 import './Login.css';
 
 function Login() {
@@ -18,7 +20,7 @@ function Login() {
         alert("Login Successfully....")
         localStorage.setItem("token",true)
         navigate("/Btn")
-      }
+      } 
       console.log(response)
     }).catch(err=>{
       console.log(err)
@@ -26,6 +28,8 @@ function Login() {
   }
 
   return (
+    <>
+    <Nav/>
     <div className="rt">
     <div className="">
       <fieldset>
@@ -54,6 +58,8 @@ function Login() {
           </fieldset>
           </div>
   </div>
+  <Footer/>
+  </>
   )
 }
 

@@ -9,15 +9,17 @@
     margin:10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0,0.25);
     border-radius: 13px;
-    top:5%;
+    top:0;
     left:50%;
+    
     transform:translate(-50%);
     z-index:99999;
     position: sticky;
+    text-align: center;
 }
 
 .nav-logo{
-    margin-top:-4%;
+    
     cursor: pointer;
     font-size:2rem;
     color:black;
@@ -27,11 +29,12 @@
 }
 .nav-menu{
     display:grid;
-    grid-template-columns: repeat(6,auto);
+    grid-template-columns: repeat(7,auto);
     grid-gap:10px;
     list-style:none;
     align-items:center;
     margin-right: 10%;
+   
 
 }
 .nav-links{
