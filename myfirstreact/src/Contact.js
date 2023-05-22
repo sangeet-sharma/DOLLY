@@ -32,7 +32,7 @@ const Contact=()=>{
             <Row className="mb-5 mt-3">
                 <Col Lg='8'>
                     <h1 className="display-4 mb-4">
-                        Contact me
+                        Contact Us
                     </h1>
                 </Col>
             </Row>
@@ -45,9 +45,9 @@ const Contact=()=>{
                         </strong>
                         <br/>
                         <br/>
-                        <p>
+                        {/* <p> */}
                             <strong>Phone : +917896543210</strong>
-                        </p>
+                        {/* </p> */}
                     </address>
                     <p>{contactConfig.description}</p>
                 </Col>
@@ -84,7 +84,8 @@ const Contact=()=>{
                          <br/> 
                         <Row>
                             <Col Lg='12' className="form-group">
-                                <button className="btn ac_btn" type="submit">Send</button>
+                                {/* <button className="btn ac_btn" type="submit">Send</button> */}
+                                <button varient="primary">Send</button>
                             </Col>
                         </Row>
                     </form>
