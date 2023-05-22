@@ -49,7 +49,7 @@ const Contact=()=>{
                             <strong>Phone : +917896543210</strong>
                         {/* </p> */}
                     </address>
-                    <p>{contactConfig.description}</p>
+                    <p className='st'>If You Have Any Query Then Feel Free To Contact Us!!</p>
                 </Col>
                 <Col Lg='7' className="d-flex align-items-center">
                     <form ref={form} className="contact_form w-100" onSubmit={sendEmail}>
