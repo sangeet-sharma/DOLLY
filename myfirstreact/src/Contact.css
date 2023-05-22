@@ -23,8 +23,9 @@
 
 .btn
 {
-    color:white;
+    color:rgb(216, 138, 138);
     border: 0px  white;
+    display: inline;
 }
 
 .btn:hover
