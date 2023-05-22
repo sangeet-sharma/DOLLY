@@ -94,7 +94,7 @@ function Bookingsrc({ match }) {
             <p>fromDate:{checkInDate}</p>
             <p>ToDate:{checkOutDate}</p>
             <p> TotalDyas:{totaldays} </p>
-            <p> Price:{room.price} </p>
+            <p> Price:{room.pricestart} </p>
           </div>
         </div>
       </div>
