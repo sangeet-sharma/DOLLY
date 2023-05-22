@@ -106,7 +106,7 @@ export default function Btn() {
                 <Card.Text>Fromdate: {setfromDate}</Card.Text>
                 <Link
                   type="btn"
-                  to={`/Bookingsrc/${result.id}}`}
+                  to={`/Try/${result.id}`}
                 >
                   <Button variant="primary">Booking Now</Button>
                 </Link>

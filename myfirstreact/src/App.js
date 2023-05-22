@@ -19,7 +19,7 @@ import Category from "./Category";
 //import Signup from './Signup';
 import Btn from "./Btn";
 import Booking from "./Booking";
-import Bookingsrc from "./Bookingsrc";
+import Try from "./Try";
 import SearchItem from "./SearchItem";
 import SearchItem1 from "./SearchItem1";
 import SearchItem2 from "./SearchItem2";
@@ -66,9 +66,9 @@ function App() {
           <Route path="/TotalRoom" exact element={<TotalRoom />}></Route>
           <Route path="/Booking" exact element={<Booking />}></Route>
           <Route
-            path="/Bookingsrc/:id"
+            path="/Try/:id"
             exact
-            element={<Bookingsrc />}
+            element={<Try/>}
           ></Route>
           {/* <Route path="/add" exact element={<Add/>}></Route>  */}
 

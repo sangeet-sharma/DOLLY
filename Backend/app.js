@@ -147,21 +147,21 @@ app.get("/UpadateRoom/:id", (req, resp) => {
 // return resp.json(result);
 //     }
 //   });
-// });
-app.post("/getroombyid", (req, res) => {
-  const { roomid } = req.body;
+// // });
+// app.post("/getroombyid", (req, res) => {
+//   const { roomid } = req.body;
 
-  // Query the database with the received ID
-  const sql = "SELECT * FROM addroom WHERE id = ?";
-  mysql.query(sql, [roomid], (error, result) => {
-    if (error) {
-      console.error(error);
-      res.status(500).json({ error: "Failed to fetch room data" });
-    } else {
-      res.json(result);
-    }
-  });
-});
+//   // Query the database with the received ID
+//   const sql = "SELECT * FROM addroom WHERE id = ?";
+//   mysql.query(sql, [roomid], (error, result) => {
+//     if (error) {
+//       console.error(error);
+//       res.status(500).json({ error: "Failed to fetch room data" });
+//     } else {
+//       res.json(result);
+//     }
+//   });
+// });
 
 // app.get("/getroombyid/:id", (req, resp) => {
 //   const sql = "SELECT * FROM addroom WHERE id = ?";
@@ -188,6 +188,25 @@ app.post("/getroombyid", (req, res) => {
 //     }
 // });
 // });
+app.get("/Try/:id", async(req, res) => {
+  const roomId = req.params.id;
+  const query = `SELECT * FROM addroom WHERE id = ${roomId}`;
+
+  // Execute the MySQL query and handle the response
+ await mysql.query(query, (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).json({ error: "Error retrieving room details" });
+    } else {
+      if (results.length > 0) {
+        const room = results[0];
+        res.json(room);
+      } else {
+        res.status(404).json({ error: "Room not found" });
+      }
+    }
+  });
+});
 
 app.put("/update/UpadateRoom/:id", (req, resp) => {
   var id = req.params.id;
