@@ -317,4 +317,4 @@ import Typography from '@mui/material/Typography';
     )
   }
 
-  export default AddRoom
+  export default AddRoom;
