@@ -36,7 +36,7 @@ import AddRoom from "./Admin/Page/AddRoom";
 import TotalRoom from "./Admin/Page/TotalRoom";
 import UpdateRoom from "./Admin/Page/UpdateRoom";
 //import { Footer } from "antd/es/layout/layout";
-// import Main from "./Admin/Main";
+
 
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Adminlogin" element={<Adminlogin />} />
-          {/* <Route path="/admin" element={<Main/>}/> */}
+          
           <Route path="/SearchItem" element={<SearchItem />} />
           <Route path="/SearchItem1" element={<SearchItem1 />} />
           <Route path="/SearchItem2" element={<SearchItem2 />} />

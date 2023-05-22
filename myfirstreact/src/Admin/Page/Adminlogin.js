@@ -31,7 +31,7 @@ function Adminlogin() {
     <div className="rt">
     <div className="">
       <fieldset>
-        <h2 align="center">Login</h2>
+        <h2 align="center">Admin Login</h2>
     <form onSubmit={handleSubmit} action="">
        <div className="ft">
               <label htmlFor="email"><strong>Email</strong></label>
