@@ -41,7 +41,7 @@ const Contact=()=>{
                     <h3 className="color_sec py-4">Get in touch</h3>
                     <address>
                         <strong>
-                            Email : kratikasinghal2@gmail.com
+                            Email : skdevmanagement@gmail.com
                         </strong>
                         <br/>
                         <br/>
