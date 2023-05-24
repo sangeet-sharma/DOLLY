@@ -263,14 +263,14 @@ app.put("/roomUpdate/:id", (req, resp) => {
 });
 app.post("/hotelbook", async (req, resp) => {
   const sql =
-    "INSERT INTO booking(`fromdate`,`todate`,`totalamount`,`totaldays`) VALUES(?,?,?,?,?)";
+    "INSERT INTO booking(`fromdate`,`todate`) VALUES(?,?)";
   await mysql.query(
     sql,
     [
       req.body.moment(checkInDate).format("MM-DD-YYYY"),
       req.body.moment(checkOutDate).format("MM-DD-YYYY "),
-      req.body.totalrent,
-      req.body.totaldays,
+      // req.body.totalrent,
+      // req.body.totaldays,
     ],
     (error, result) => {
       if (error) {

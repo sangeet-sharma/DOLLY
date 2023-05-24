@@ -20,8 +20,8 @@ function Try({ match }) {
   formdata.append('checkInDate',checkInDate)
   formdata.append('checkOutDate',checkOutDate)
   
-  formdata.append('totaldays',totaldays)
-  formdata.append('totalrent',totalrent)
+  // formdata.append('totaldays',totaldays)
+  // formdata.append('totalrent',totalrent)
 
     const BookingDetails ={
      // userid:JSON.parse(localstorage.getItem('currentUser')).id,
