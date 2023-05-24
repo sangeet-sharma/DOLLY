@@ -1,6 +1,7 @@
 const mysql = require("./db_connection/connection");
 const express = require("express");
 const cors = require("cors");
+const momnet = require("moment");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
@@ -260,5 +261,26 @@ app.put("/roomUpdate/:id", (req, resp) => {
     }
   );
 });
-
+app.post("/bookingdetails", (req, resp) => {
+  const sql =
+    "INSERT INTO booking(`room`,`roomid`,`userid`,`fromdate`,`todate`,`totalamount`,`totaldays`,`transactionid`) VALUES(?,?,?,?,?)";
+  mysql.query(
+    sql,
+    [
+      req.body.room,
+      req.body.userid,
+      req.body.moment(checkInDate).format('MM-DD-YYYY'),
+      req.body.moment(checkOutDate).format('MM-DD-YYYY '),
+      req.body. totalrent,
+      req.body.totaldays
+    ],
+    (error, result) => {
+      if (error) {
+        return resp.json(error);
+      } else {
+        return resp.json(result);
+      }
+    }
+  );
+});
 app.listen(4000);

@@ -14,7 +14,28 @@ function Try({ match }) {
       const ed = moment(checkOutDate, "YYYY-MM-DD");
       
        const totaldays = moment.duration(ed.diff(sd)).asDays();
-  useEffect(() => {
+       const totalrent=room.price*totaldays;
+       async function BookRoom()
+       {
+        const BookingDetails ={
+          room,
+         
+          // userid:JSON.parse(localstorage.getItem('currentUser')).id,
+           checkInDate,
+           checkOutDate,
+           totalrent,
+           totaldays
+          }
+try
+{
+const result = await axios.post("/bookingdetails",BookingDetails);
+}
+catch(error)
+{
+ 
+}
+}
+useEffect(() => {
     const fetchRoomDetails = async () => {
       try {
         const response = await axios.get(`http://localhost:4000/Try/${id}`);
@@ -65,9 +86,9 @@ function Try({ match }) {
 <div>
   
       <h>RoomPrice:{room.price}</h>;
-      <p>TotalAmonut:{room.price*totaldays}</p>
+      <p>TotalAmonut:{totalrent}</p>
       <img style={{width:"100px",height:"60px"}} src={`http://localhost:4000/photos/${room.file}`} />
-      <button>PayNow</button>
+      <button onClick={BookRoom}>PayNow</button>
 
       </div>
     </div>
