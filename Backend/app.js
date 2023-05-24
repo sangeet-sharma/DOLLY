@@ -261,10 +261,10 @@ app.put("/roomUpdate/:id", (req, resp) => {
     }
   );
 });
-app.post("/bookingdetails", (req, resp) => {
+app.post("/hotelbook", async(req, resp) => {
   const sql =
     "INSERT INTO booking(`room`,`roomid`,`userid`,`fromdate`,`todate`,`totalamount`,`totaldays`,`transactionid`) VALUES(?,?,?,?,?)";
-  mysql.query(
+ await  mysql.query(
     sql,
     [
       req.body.room,
@@ -276,7 +276,22 @@ app.post("/bookingdetails", (req, resp) => {
     ],
     (error, result) => {
       if (error) {
-        return resp.json(error);
+        return resp.send(error);
+      } else {
+        return resp.send(result);
+      }
+    }
+  );
+});
+
+app.post("/dummy",async (req, resp) => {
+  const sql = "INSERT INTO dummy(`id`) VALUES(?)";
+ await mysql.query(
+    sql,
+    [req.body.id ],
+    (error, result) => {
+      if (error) {
+        return resp.json("Error", error);
       } else {
         return resp.json(result);
       }

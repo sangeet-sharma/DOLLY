@@ -15,25 +15,28 @@ function Try({ match }) {
       
        const totaldays = moment.duration(ed.diff(sd)).asDays();
        const totalrent=room.price*totaldays;
-       async function BookRoom()
-       {
-        const BookingDetails ={
-          room,
-         
-          // userid:JSON.parse(localstorage.getItem('currentUser')).id,
-           checkInDate,
-           checkOutDate,
-           totalrent,
-           totaldays
-          }
-try
-{
-const result = await axios.post("/bookingdetails",BookingDetails);
-}
-catch(error)
-{
+      async function BookRoom()
+       { 
+       
+      //  const BookingDetails ={ 
+      //   id, 
+      //   //  userid:1, // userid:JSON.parse(localstorage.getItem('currentUser')).id,
+      //   //     checkInDate,
+      //   //     checkOutDate,
+      //   //     totalrent,
+      //   //     totaldays
+      //      }
+           
+           
+ try
+ {
+ const result = await axios.post("http://localhost:4000/dummy",id);
+ console.log(result);
+ }
+ catch(error)
+ {
  
-}
+ }
 }
 useEffect(() => {
     const fetchRoomDetails = async () => {
