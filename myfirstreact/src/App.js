@@ -7,7 +7,7 @@ import "./App.css";
 // import Boxshad from './Boxshad';
 //import LDmode from './LDmode';
 
-import Nav from "./Nav";
+// import Nav from "./Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 //import Status from './Status';
@@ -24,24 +24,25 @@ import SearchItem from "./SearchItem";
 import SearchItem1 from "./SearchItem1";
 import SearchItem2 from "./SearchItem2";
 import CheckHotelPage from "./CheckHotelPage";
-//mport Footer from './Footer';
+// import Footer from './Footer';
 import About from "./About/About";
 import Signup from "./Reg/Signup";
 import Login from "./Reg/Login";
-import Adminlogin from "./Adminlogin";
+import Adminlogin from "./Admin/Page/Adminlogin";
 
 import AddRoom from "./Admin/Page/AddRoom";
-import Update from "./Admin/Page/Update";
-import Add from "./Admin/Page/Add";
+// import Update from "./Admin/Page/Update";
+
 import TotalRoom from "./Admin/Page/TotalRoom";
 import UpdateRoom from "./Admin/Page/UpdateRoom";
-import { Footer } from "antd/es/layout/layout";
+//import { Footer } from "antd/es/layout/layout";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           {/* <Route path='/' element={<Nav />}></Route> 
          <Route path="/" element={<Home />} />
@@ -55,7 +56,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Adminlogin" element={<Adminlogin />} />
-
+          
           <Route path="/SearchItem" element={<SearchItem />} />
           <Route path="/SearchItem1" element={<SearchItem1 />} />
           <Route path="/SearchItem2" element={<SearchItem2 />} />
@@ -76,7 +77,7 @@ function App() {
   <Route path="/update" exact element={<Update/>}></Route>
   <Route path="/add" exact element={<Add/>}></Route> */}
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );

@@ -1,18 +1,48 @@
-me{
-    background-color:black; 
+.me{
+    background-color:darkgray ; 
     color:#ffffff;  
-    font-family: 'Raleway',sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     padding-top: 60px;
 }
+h1{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+  font-weight: 25px;
+  font-style: oblique;
+  /* margin-left: 50%; */
+}
 
+h3{
+  color:#fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 25px;
+  font-style: oblique;
+}
+
+address
+{
+    color:royalblue;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-style: oblique;
+}
+
+
+.st{
+    color:royalblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: oblique;
+}
 .contact_form .form-control
 {
     padding: 1.375rem .75rem;
     line-height: 1.5;
       color:#ffffff; 
-      background-color:black;  
+      /* background-color:black;    */
+
     border-radius: 0 !important;
-    border: 1px solid #fff;
+    border: 1px solid black;
 }
 
 .contact_form input.form-control
@@ -21,13 +51,19 @@ me{
     height: calc(2.5rem +.75rem + 2px);
 }
 
-.btn
+.bt
 {
-    color:white;
-    border: 0px  white;
+    /* color:rgb(216, 138, 138); */
+    /* border: 0px  white; */
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width:30%;
+    border-block: Solid black;
 }
 
-.btn:hover
+.bt:hover
 {
-color: white;
+color:#fff;
 }

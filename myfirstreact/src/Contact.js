@@ -1,6 +1,7 @@
 
 import emailjs from '@emailjs/browser';
-//import Nav from './Nav';
+import Nav from './Nav';
+import Footer from './Footer';
 import { useRef } from 'react';
 import { Container,Row,Col } from "react-bootstrap";
 import { contactConfig } from "./content_opinion";
@@ -23,12 +24,15 @@ const Contact=()=>{
           e.target.reset();
       };
     return(
+        <>
+         <Nav/>
         <div className='me'>
+           
         <Container>
             <Row className="mb-5 mt-3">
                 <Col Lg='8'>
                     <h1 className="display-4 mb-4">
-                        Contact me
+                        Contact Us
                     </h1>
                 </Col>
             </Row>
@@ -37,15 +41,15 @@ const Contact=()=>{
                     <h3 className="color_sec py-4">Get in touch</h3>
                     <address>
                         <strong>
-                            Email : kratikasinghal2@gmail.com
+                            Email : skdevmanagement@gmail.com
                         </strong>
                         <br/>
                         <br/>
-                        <p>
+                        {/* <p> */}
                             <strong>Phone : +917896543210</strong>
-                        </p>
+                        {/* </p> */}
                     </address>
-                    <p>{contactConfig.description}</p>
+                    <p className='st'>If You Have Any Query Then Feel Free To Contact Us!!</p>
                 </Col>
                 <Col Lg='7' className="d-flex align-items-center">
                     <form ref={form} className="contact_form w-100" onSubmit={sendEmail}>
@@ -74,13 +78,14 @@ const Contact=()=>{
                         <textarea 
                         className="form-control rounded-0" id="message"
                          name="message"
-                         placeholder="Message"
+                         placeholder="Write Your Message Here......"
                          rows='5'>
                          </textarea>
                          <br/> 
                         <Row>
                             <Col Lg='12' className="form-group">
-                                <button className="btn ac_btn" type="submit">Send</button>
+                                {/* <button className="btn ac_btn" type="submit">Send</button> */}
+                                <button className="bt">Send</button>
                             </Col>
                         </Row>
                     </form>
@@ -89,6 +94,8 @@ const Contact=()=>{
         </Container>
     
           </div>
+          <Footer/>
+          </>
         )
         }
 

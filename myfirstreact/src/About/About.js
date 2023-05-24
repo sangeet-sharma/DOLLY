@@ -3,8 +3,13 @@ import './About.css'
 import Slide from './Slide'
 import Team from './Team'
 import Alert from 'react-bootstrap/Alert';
+import Nav from '../Nav';
+import Footer from '../Footer';
+
 export default function About() {
     return (
+        <>
+        <Nav/>
         <div>
             <h1>Gallery</h1>
             <Slide />
@@ -32,5 +37,7 @@ export default function About() {
 
             <Team />
         </div>
+        <Footer/>
+        </>
     )
 }

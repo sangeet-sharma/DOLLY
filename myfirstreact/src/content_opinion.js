@@ -1,5 +1,5 @@
 const contactConfig = {
-    description:'this is contact page'
+    description:''
     };
     
     export{

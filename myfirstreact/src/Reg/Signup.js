@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 import './Signup.css';
 import axios from 'axios'
+import Nav from '../Nav';
+import Footer from '../Footer';
 function Signup() {
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
@@ -20,6 +22,8 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
   }
   // const navigate=useNavigate()
   return (
+    <>
+    <Nav/>
     <div className="rt">
     <div className="">
       <fieldset>
@@ -53,6 +57,8 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
           </fieldset>
           </div>
   </div>
+  <Footer/>
+  </>
   )
 }
 
