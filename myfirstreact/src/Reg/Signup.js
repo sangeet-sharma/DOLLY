@@ -43,7 +43,7 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
        <div className="ft">
               <label htmlFor="email"><strong>Email:</strong></label>
               <input type="email"
-              name='email' value={email} 
+              name='email' value={email}   
               onChange={(e)=>setEmail(e.target.value)}
               placeholder='Enter Email' />
          
