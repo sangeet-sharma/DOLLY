@@ -31,11 +31,11 @@ function Login() {
   return (
     <>
     <Nav/>
-    <div>
+    <div className='container'>
     <div className="rt">
     <div>
       <fieldset>
-        <h2 align="center">Sign-in</h2>
+        <h2 align="center"><i>Sign-in</i></h2>
     <form onSubmit={handleSubmit} action="">
        <div className="ft">
               <label htmlFor="email"><strong>Email</strong></label>

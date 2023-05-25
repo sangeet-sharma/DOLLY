@@ -3,17 +3,17 @@ fieldset{
     width:40%;
     margin-top:0px;
 }
-.container{
+.container{ 
     /* display:flex; */
     /* justify-content: center; 
-    margin: 0;
-    align-items: center;
-    background-color: antiquewhite;
-     text-align: center;
-     width: 70%;  */
-    /* height: 60%; */
+    /* margin: 0;
+    align-items: center; */
+    background-color: antiquewhite; 
+      /* text-align: center; */
+     /* width: 70%;    */
+     /* height: 60%;  */
     /* margin-left: 35%; */
-}  
+ }  
  .rt{
      
     /* display:flex;
@@ -23,7 +23,7 @@ fieldset{
     /* height: 100%; */
 
     justify-content: center; 
-    margin: 0;
+    /* margin: 0; */
     align-items: center;
     /* background-color: antiquewhite; */
      text-align: center;

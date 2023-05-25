@@ -28,7 +28,7 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
     <div className="rt">
     <div>
       <fieldset>
-        <legend align="center">Sign-Up</legend>
+        <legend align="center"><i>Sign-Up</i></legend>
     <form onSubmit={handleSubmit} action="">
     <div className="ft">
               <label htmlFor="name"><strong>Name:</strong></label>
