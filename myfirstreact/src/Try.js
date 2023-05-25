@@ -121,7 +121,7 @@ function Try({ match }) {
         
            
           </div>
-          <button onClick={Booknow} className="ut" >PayNow</button>
+          {/* <button onClick={Booknow} className="ut" >PayNow</button> */}
 
         </div>
       </div>
