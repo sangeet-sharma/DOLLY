@@ -122,7 +122,7 @@ action.resetForm();
     <form onSubmit={handleSubmit}  className='RegisterPage'>
     <div className='RegisterPageLeft'>
     <div className='RegisterPageLeftHeading'>
-  <h4>Add New Account</h4>
+  <h4><i>Sign-Up</i></h4>
     </div>
     <div>
         <input type="text"
