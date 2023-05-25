@@ -121,10 +121,13 @@ const Register = () => {
   console.log(errors)
 
   return (
+    <div className="container2">
+    <div className="rt">
+      <fieldset>
+    <legend><i>Sign-Up</i></legend>
     <form onSubmit={handleSubmit} action="">
-      <div className="container2">
-        <div className="rt">
-          <h4><i>Sign-Up</i></h4>
+     
+         
         
         <div className="ft">
           <label><strong>Name:</strong></label>
@@ -173,12 +176,14 @@ const Register = () => {
         <div className='RegisterPageLeftLink'>
           <Link to="/login">Already Create Account?</Link>
         </div>
-      </div>
+    
+    </form>
+    </fieldset>
+    </div>
 
       
 
 </div>
-    </form>
   )
 }
 

@@ -1,8 +1,8 @@
-/* fieldset{
+fieldset{
     height:60%;
     width:40%;
     margin-top:0px;
-} */
+}
 /* .rt{
     margin:0;
     /* background-color: antiquewhite;  */
@@ -29,25 +29,8 @@
      height: 60%; 
      margin-left: 35%; 
 }  */
-.w3{
-    resize: vertical;
-    width:100%;
-    border-bottom:solid;
-    padding:10px;
-    text-align:left;
-    font-style:oblique;
-    font-family:'Times New Roman', Times, serif;
-} 
-.w3{
-    resize: vertical;
-    width:0;
-    border-bottom:solid;
-    padding:10px;
-    text-align:left;
-    font-style:oblique;
-    font-family:'Times New Roman', Times, serif;
-}
-.w3{
+
+.com{
     resize: vertical;
     width:100%;
     border-bottom:solid;
