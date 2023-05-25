@@ -4,8 +4,6 @@ import moment from "moment";
 import { DatePicker, Space } from "antd";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-//use localstorage from this code in react?
-
 
 function Try({ match }) {
   const { id } = useParams();
@@ -35,6 +33,33 @@ function Try({ match }) {
   //   console.error(error);
   //   }
   // };
+  const BookingDetails = {
+    // userid:JSON.parse(localstorage.getItem('currentUser')).id,
+    checkInDate,
+    checkOutDate,
+    totalrent,
+    totaldays
+  }
+
+  //  try
+  //  {
+  //  const result = await axios.post("http://localhost:4000/dummy",id);
+  //  console.log(result);
+  //  }
+  //  catch(error)
+  //  {
+
+  //  }
+  // }
+  const Booknow = async () => {
+    try {
+      const response = await axios.post(`http://localhost:4000/hotelbook`, formdata);
+      const data = response.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
 
     const fetchRoomDetails = async () => {
@@ -84,7 +109,7 @@ function Try({ match }) {
           <div>
          
               
-                <p>Name: { nameFetch.name}</p>
+                <p>Name: {nameFetch.name}</p>
             
            
             <p>fromDate:{checkInDate}</p>
