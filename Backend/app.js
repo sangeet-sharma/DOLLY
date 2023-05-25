@@ -1,6 +1,7 @@
 const mysql = require("./db_connection/connection");
 const express = require("express");
 const cors = require("cors");
+const momnet = require("moment");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
@@ -188,12 +189,12 @@ app.get("/UpadateRoom/:id", (req, resp) => {
 //     }
 // });
 // });
-app.get("/Try/:id", async(req, res) => {
+app.post("/Try/:id", async (req, res) => {
   const roomId = req.params.id;
   const query = `SELECT * FROM addroom WHERE id = ${roomId}`;
 
   // Execute the MySQL query and handle the response
- await mysql.query(query, (error, results) => {
+  await mysql.query(query, (error, results) => {
     if (error) {
       console.error(error);
       res.status(500).json({ error: "Error retrieving room details" });
@@ -260,5 +261,35 @@ app.put("/roomUpdate/:id", (req, resp) => {
     }
   );
 });
+app.post("/hotelbook", async (req, resp) => {
+  const sql =
+    "INSERT INTO booking(`fromdate`,`todate`) VALUES(?,?)";
+  await mysql.query(
+    sql,
+    [
+      req.body.moment(checkInDate).format("MM-DD-YYYY"),
+      req.body.moment(checkOutDate).format("MM-DD-YYYY "),
+      // req.body.totalrent,
+      // req.body.totaldays,
+    ],
+    (error, result) => {
+      if (error) {
+        return resp.send(error);
+      } else {
+        return resp.send(result);
+      }
+    }
+  );
+});
 
+app.post("/dummy", async (req, resp) => {
+  const sql = "INSERT INTO dummy(`id`) VALUES(?)";
+  await mysql.query(sql, [req.body.id], (error, result) => {
+    if (error) {
+      return resp.json("Error", error);
+    } else {
+      return resp.json(result);
+    }
+  });
+});
 app.listen(4000);

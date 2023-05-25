@@ -1,0 +1,40 @@
+
+/* .ty{
+
+    margin: left 500px;
+    /* margin: right 500px; */
+
+
+/* img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    
+    margin-right: 0px;
+    
+   
+  } */
+  /* .rt{
+    font-size: 60px;
+    font-family:'Times New Roman', Times, serif;
+  } */
+  .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;;
+    background-color:rebeccapurple;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    width:20%;
+    margin-left: 50%;
+   
+  }
+  
+  .btn:hover {background-color:royalblue}
+  
