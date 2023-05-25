@@ -16,15 +16,14 @@ function Login() {
     e.preventDefault()
     axios.post("http://localhost:4000/login",{email,password})
     .then(response=>{
-      if(response.data.status==="login successfully"){
-        alert("Login Successfully....")
-        localStorage.setItem("token",true)
-        localStorage.setItem("currentuser", JSON.stringify(response.data));
-  
-        navigate("/Btn")
-      } 
       console.log(response)
-    }).catch(err=>{
+        alert("Login Successfully....")
+        // localStorage.setItem("token",true)
+        localStorage.setItem("currentuser", JSON.stringify(response.data));
+        navigate("/Btn")
+      console.log(response)
+    }).catch(err=>
+      {
       console.log(err)
     })
   }

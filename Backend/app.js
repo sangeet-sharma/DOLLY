@@ -49,7 +49,7 @@ app.post("/login", (req, resp) => {
       return resp.json("error");
     }
     if (result.length > 0) {
-      return resp.json({ status: "login successfully" });
+      return resp.json(result);
     } else {
       return resp.json({ Message: "login Failed..." });
     }
