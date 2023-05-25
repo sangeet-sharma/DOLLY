@@ -4,35 +4,25 @@ import moment from "moment";
 import { DatePicker, Space } from "antd";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import "./Try.css";
 function Try({ match }) {
   const { id } = useParams();
-  
-  const user = JSON.parse(localStorage.getItem('currentuser'));
   const [room, setRoom] = useState([]);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const sd = moment(checkInDate, "YYYY-MM-DD");
   const ed = moment(checkOutDate, "YYYY-MM-DD");
+
   const totaldays = moment.duration(ed.diff(sd)).asDays();
   const totalrent = room.price * totaldays;
-  
-  
+
+  const formdata = new FormData();
+  formdata.append('checkInDate', checkInDate)
+  formdata.append('checkOutDate', checkOutDate)
+
   // formdata.append('totaldays',totaldays)
   // formdata.append('totalrent',totalrent)
 
-   
-  
-  // const Booknow = async () => {
-  //   try {
-  //     const response = await axios.post(`http://localhost:4000/dummy`, id);
-    
-  //     console.log(response);
-  //   } 
-  //   catch (error) {
-  //   console.error(error);
-  //   }
-  // };
   const BookingDetails = {
     // userid:JSON.parse(localstorage.getItem('currentUser')).id,
     checkInDate,
@@ -51,17 +41,16 @@ function Try({ match }) {
 
   //  }
   // }
-  // const Booknow = async () => {
-  //   try {
-  //     const response = await axios.post(`http://localhost:4000/hotelbook`, );
-  //     const data = response.data;
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const Booknow = async () => {
+    try {
+      const response = await axios.post(`http://localhost:4000/hotelbook`, formdata);
+      const data = response.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
-
     const fetchRoomDetails = async () => {
       try {
         const response = await axios.post(`http://localhost:4000/Try/${id}`);
@@ -73,57 +62,67 @@ function Try({ match }) {
     };
     fetchRoomDetails();
   }, []);
-  
-    const  nameFetch= JSON.parse(localStorage.getItem('currentuser'));
-   
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Booking Details....</h1>
-        <div className="col-md-5">
-          <div>
-            <label className="ro">
+        <hr></hr>
+        <div className="row justify-center mt-5">
+
+          <div className="col-md-5" >
+            <label >
               From -date:
+
               <input
                 type="date"
                 name="checkInDate"
                 value={checkInDate}
-                onChange={(e) => setCheckInDate(e.target.value)}
-              />
+                onChange={(e) => setCheckInDate(e.target.value)} />
+
             </label>
-          </div>
+            &nbsp; &nbsp;
 
-          <br></br>
 
-          <div>
-            <label className="ro">
+
+
+            <label>
               To-date:
-              <input
-                type="date"
-                name="checkOutDate"
-                value={checkOutDate}
-                onChange={(e) => setCheckOutDate(e.target.value)}
-              />
             </label>
+            <input
+              type="date"
+              name="checkOutDate"
+              value={checkOutDate}
+              onChange={(e) => setCheckOutDate(e.target.value)} />
+            <br></br>
+            <br></br>
           </div>
-          <div>
-         
-              
-                <p>Name: {nameFetch.name}</p>
-            
-           
-            <p>fromDate:{checkInDate}</p>
-            <p>ToDate:{checkOutDate}</p>
-            <p> TotalDyas:{totaldays} </p>
-          </div>
-          <div>
-            <h>RoomPrice:{room.price}</h>;<p>TotalAmonut:{totalrent}</p>
+          <br></br>
+          <hr className="ty" />
+          <br></br>
+          <br></br>
+          <div className="col-md-5">
             <img
-              style={{ width: "100px", height: "60px" }}
-              src={`http://localhost:4000/photos/${room.file}`}
-            />
-            <button  >PayNow</button>
+              style={{ width: "400px", height: "300px", }}
+              src={`http://localhost:4000/photos/${room.file}`} class="rounded float-left" />
+
           </div>
+          <br></br>
+          <br></br>
+          <div className="col-md-5">
+           <b>
+            <p>Name: </p>
+            <p>FromDate:{checkInDate}</p>
+            <p>ToDate:{checkOutDate}</p>
+            <p>TotalDyas:{totaldays} </p>
+            <p>RoomPrice:{room.price}</p>
+            <p>TotalAmonut:{totalrent}</p>
+            
+            </b>
+        
+           
+          </div>
+          <button onClick={Booknow} className="ut" >PayNow</button>
+
         </div>
       </div>
     </>
