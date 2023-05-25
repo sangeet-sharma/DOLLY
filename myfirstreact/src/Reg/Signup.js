@@ -25,6 +25,7 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
   return (
     <>
     <Nav/>
+    <div className="container2">
     <div className="rt">
     <div>
       <fieldset>
@@ -57,6 +58,7 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
           </form>
           </fieldset>
           </div>
+  </div>
   </div>
   <Footer/>
   </>

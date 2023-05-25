@@ -10,9 +10,9 @@ fieldset{
     align-items: center; */
     background-color: antiquewhite; 
       /* text-align: center; */
-     /* width: 70%;    */
+     width: 70%;   
      /* height: 60%;  */
-    /* margin-left: 35%; */
+    margin-left:20%;
  }  
  .rt{
      justify-content: center; 
@@ -20,7 +20,7 @@ fieldset{
     align-items: center;
     /* background-color: antiquewhite; */
      text-align: center;
-     width: 70%; 
+     width:70%; 
     /* height: 60%; */
     margin-left: 35%;
 } 
