@@ -1,8 +1,8 @@
-fieldset{
+/* fieldset{
     height:60%;
     width:40%;
     margin-top:0px;
-}
+} */
 /* .rt{
     margin:0;
     /* background-color: antiquewhite;  */
@@ -12,42 +12,42 @@ fieldset{
     /* display:flex; */
     /* justify-content: center; 
     /* margin: 0;
-    align-items: center; */
+     align-items: center; 
     background-color: antiquewhite; 
       /* text-align: center; */
      width: 70%;   
      /* height: 60%;  */
-    margin-left:20%;
+    /* margin-left:20%; */
  }  
- .rt{
+ /* .rt{
      justify-content: center; 
-    /* margin: 0; */
-    align-items: center;
-    /* background-color: antiquewhite; */
-     text-align: center;
-     width:70%; 
-    /* height: 60%; */
-    margin-left: 35%;
+    margin: 0;
+   align-items: center; 
+     background-color: antiquewhite; 
+      text-align: center;
+     width:70%;  
+     height: 60%; 
+     margin-left: 35%; 
+}  */
+.w3{
+    resize: vertical;
+    width:100%;
+    border-bottom:solid;
+    padding:10px;
+    text-align:left;
+    font-style:oblique;
+    font-family:'Times New Roman', Times, serif;
 } 
-input[type=text]{
+.w3{
     resize: vertical;
-    width:100%;
+    width:0;
     border-bottom:solid;
     padding:10px;
     text-align:left;
     font-style:oblique;
     font-family:'Times New Roman', Times, serif;
 }
-input[type=email]{
-    resize: vertical;
-    width:100%;
-    border-bottom:solid;
-    padding:10px;
-    text-align:left;
-    font-style:oblique;
-    font-family:'Times New Roman', Times, serif;
-}
-input[type=password]{
+.w3{
     resize: vertical;
     width:100%;
     border-bottom:solid;
@@ -69,9 +69,9 @@ input[type=password]{
     border:2px solid black;
     box-sizing: border-box;
 }
-.ft{
+ .ft{
     font-style: oblique;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     text-align:left;
-}
+} 

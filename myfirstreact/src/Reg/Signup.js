@@ -12,13 +12,13 @@
 // }
 
 // const  Signup =()=> {
- 
+
 //   const [name,setName] = useState("")
 //   const [email,setEmail] = useState("")
 //   const [password,setPassword] = useState("")
 //   const navigate = useNavigate()
 
-  
+
 //   const handleSubmit = (e)=>{
 // e.preventDefault()
 // axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>{
@@ -29,7 +29,7 @@
 //   console.log(err)
 // })
 //   }
- 
+
 //   // const navigate=useNavigate()
 //   return (
 //     <>
@@ -45,7 +45,7 @@
 //               <input type="text" name='name'
 //                value={name} 
 //               onChange={(e)=>setName(e.target.value)} placeholder='Enter Name'  />
-             
+
 //           </div>
 //        <div className="ft">
 //               <label htmlFor="email"><strong>Email:</strong></label>
@@ -53,21 +53,21 @@
 //               name='email' value={email} 
 //               onChange={(e)=>setEmail(e.target.value)}
 //               placeholder='Enter Email' />
-         
+
 
 //           </div>
 //           <div className="ft">
 //               <label htmlFor="password"><strong>Password:</strong></label>
 //               <input type="password" value={password} name='password'
 //                onChange={(e)=>setPassword(e.target.value)} placeholder='Enter Password'  />
-     
+
 //           </div>
 //           <br></br>
 //           <button className="bts" type='submit'><strong>Sign up</strong></button>
 //        <br></br>
-       
+
 //           <Link to='/login'><button className="bts">login</button></Link>
-     
+
 //           </form>
 //           </fieldset>
 //           </div>
@@ -81,17 +81,18 @@
 // export default Signup;
 
 
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 // import '../Auth/Register.css';
 // import UserLogin from '../Images/userLogin.jpg';
 import { Link, useNavigate } from 'react-router-dom';
-import {useFormik} from 'formik';
+import { useFormik } from 'formik';
 import { signUpSchema } from '../schemas';
 import axios from 'axios';
+import './Signup.css';
 const initialValues = {
-  name:"",
-  email:"",
-  password:""
+  name: "",
+  email: "",
+  password: ""
 }
 
 const Register = () => {
@@ -101,76 +102,83 @@ const Register = () => {
       .then(response => {
         console.log(response.data)
         alert("Account Created Successfully!!")
-navigate("/login")
+        navigate("/login")
       })
       .catch(error => {
         console.log(error);
       });
   }
-  
- const {values,handleBlur,touched,handleChange,handleSubmit,errors} =  useFormik({
-    initialValues:initialValues,
-    validationSchema:signUpSchema,
-    onSubmit:(values,action)=>{
-console.log(values)
-sendData(values)
-action.resetForm();
+
+  const { values, handleBlur, touched, handleChange, handleSubmit, errors } = useFormik({
+    initialValues: initialValues,
+    validationSchema: signUpSchema,
+    onSubmit: (values, action) => {
+      console.log(values)
+      sendData(values)
+      action.resetForm();
     }
   })
   console.log(errors)
 
   return (
-    <form onSubmit={handleSubmit}  className='RegisterPage'>
-    <div className='RegisterPageLeft'>
-    <div className='RegisterPageLeftHeading'>
-  <h4><i>Sign-Up</i></h4>
-    </div>
-    <div>
-        <input type="text"
-         name='name'
-        value={values.name}
-        onChange={handleChange}
-        onBlur={handleBlur}
-          placeholder='Name...' />
-    </div>
-    { errors.name && touched.name ? 
-    (<p className='form-error text-danger'>{errors.name}</p>):null}
+    <form onSubmit={handleSubmit} action="">
+      <div className="container2">
+        <div className="rt">
+          <h4><i>Sign-Up</i></h4>
+        
+        <div className="ft">
+          <label><strong>Name:</strong></label>
+          <input class="w3" type="text"
+            name='name'
+            value={values.name}
+            onChange={handleChange}
+             onBlur={handleBlur}
+            placeholder='Name...' />
 
-    <div>
-        <input type="email"
-         name='email'
-         value={values.email}
-         onChange={handleChange}
-         onBlur={handleBlur}
-        placeholder='Email...' />
-    </div>
-    { errors.email && touched.email ? 
-    (<p className='form-error text-danger'>{errors.email}</p>):null}
-    <div>
-        <input type="password" 
-        name='password' 
-        value={values.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
-         placeholder='Password...' />
-    </div>
-    { errors.password && touched.password ? 
-    (<p className='form-error text-danger'>{errors.password}</p>):null}
-    <div className='RegisterPageLeftButton'>
-        <button type='submit'>Register</button>
-    </div>
-    
-    <div className='RegisterPageLeftLink'>
-       <Link to="/login">Already Create Account?</Link> 
-    </div>
-    </div>
+{errors.name && touched.name ?
+          (<p className='form-error text-danger'>{errors.name}</p>) : null}
+        </div>
+       
 
-    <div className='RegisterPageRight'>
-        {/* <img src={UserLogin} alt="" /> */}
-    </div>
+        <div className="ft">
+          <label><strong>Email:</strong></label>
+          <input class="w3" type="email"
+            name='email'
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder='Email...' />
 
-  
-</form>
+{errors.email && touched.email ?
+          (<p className='form-error text-danger'>{errors.email}</p>) : null}
+        </div>
+       
+        <div className="ft">
+          <label><strong>Password:</strong></label>
+          <input class="w3" type="password"
+            name='password'
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder='Password...' />
+
+{errors.password && touched.password ?
+          (<p className='form-error text-danger'>{errors.password}</p>) : null}
+        </div>
+        
+        <div className='RegisterPageLeftButton'>
+          <button type='submit'>Register</button>
+        </div>
+
+        <div className='RegisterPageLeftLink'>
+          <Link to="/login">Already Create Account?</Link>
+        </div>
+      </div>
+
+      
+
+</div>
+    </form>
   )
 }
 
