@@ -100,6 +100,7 @@ const Register = () => {
     axios.post('http://localhost:4000/signup', data)
       .then(response => {
         console.log(response.data)
+        alert("Account Created Successfully!!")
 navigate("/login")
       })
       .catch(error => {
@@ -160,7 +161,7 @@ action.resetForm();
     </div>
     
     <div className='RegisterPageLeftLink'>
-       <Link to="/">Already Create Account</Link> 
+       <Link to="/login">Already Create Account?</Link> 
     </div>
     </div>
 
