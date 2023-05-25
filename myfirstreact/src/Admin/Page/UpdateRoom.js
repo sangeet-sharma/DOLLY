@@ -63,7 +63,7 @@ fetch(`http://localhost:4000/UpadateRoom/${id}`).then((response)=>{
          <Box height={30} component="main" sx={{flexGrow:1,p: 3}}>
             <div className='container1'>
             <div className='AdmissionH3'>
-      <h3>Update Page</h3>
+      <h3>Update Room</h3>
           </div>
           <Form noValidate validated={validated} method='post' onSubmit={handleSubmit}
             enctype='multipart/form-data'>
