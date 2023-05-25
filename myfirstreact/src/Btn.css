@@ -1,20 +1,9 @@
-/* .m1
-{
+.row1{
     display: flex;
-} */
-
-.ds
-{
-    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.container{
-    margin-left: 8%;
-}
-.col-md-3{
-    margin-left: 5%;
-}
 
-.col-md-3:hover img{
-    transform: scale(1.2);
-}
+
+  

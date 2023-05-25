@@ -28,6 +28,7 @@ function Adminlogin() {
   }
 
   return (
+    <div className="container2">
     <div className="rt">
     <div className="">
       <fieldset>
@@ -55,6 +56,7 @@ function Adminlogin() {
           </form>
           </fieldset>
           </div>
+  </div>
   </div>
   )
 }
