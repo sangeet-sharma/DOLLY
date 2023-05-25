@@ -262,8 +262,7 @@ app.put("/roomUpdate/:id", (req, resp) => {
   );
 });
 app.post("/hotelbook", async (req, resp) => {
-  const sql =
-    "INSERT INTO booking(`fromdate`,`todate`) VALUES(?,?)";
+  const sql = "INSERT INTO booking(`fromdate`,`todate`) VALUES(?,?)";
   await mysql.query(
     sql,
     [
@@ -281,15 +280,41 @@ app.post("/hotelbook", async (req, resp) => {
     }
   );
 });
+// app.post("/dummy", async (req, res)=>{
+//   const sql = "INSERT INTO dummy (`fromdate`) VALUES (?)";
+//   try{
+//   await mysql.query(sql, [req.body.id], (error, result) => {
+//       if (error) 
+//       {
+//         console.error(error);
+// return res.status(500).json({ error: "Error inserting data into dummy table" });
+//       }
+//       return res.json(result);
+//     });
+//   } 
+//   catch (error) 
+//   {
+//     console.error(error);
+//     return res.status(500).json({ error: "An unexpected error occurred" });
+//   }
+// });
 
-app.post("/dummy", async (req, resp) => {
-  const sql = "INSERT INTO dummy(`id`) VALUES(?)";
-  await mysql.query(sql, [req.body.id], (error, result) => {
-    if (error) {
-      return resp.json("Error", error);
-    } else {
-      return resp.json(result);
-    }
-  });
-});
+
+// app.post("/dummy", async (req, resp) => {
+//   const sql = "INSERT INTO dummy(`fromdate`) VALUES(?)";
+//   await mysql.query(
+//     sql,
+//     [req.body.id],
+//     (error, result) => {
+//       if (error) 
+//       {
+//        return resp.status(500).json({ error: "Error retrieving room details" });
+//       } 
+// else 
+//       {
+// return resp.json(result);
+//       }
+//     }
+//   );
+// });
 app.listen(4000);

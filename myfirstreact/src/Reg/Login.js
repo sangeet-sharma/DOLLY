@@ -19,6 +19,8 @@ function Login() {
       if(response.data.status==="login successfully"){
         alert("Login Successfully....")
         localStorage.setItem("token",true)
+        localStorage.setItem("currentuser", JSON.stringify(response.data));
+  
         navigate("/Btn")
       } 
       console.log(response)
@@ -26,7 +28,7 @@ function Login() {
       console.log(err)
     })
   }
-
+ 
   return (
     <>
     <Nav/>
@@ -41,6 +43,7 @@ function Login() {
               onChange={(e)=>setEmail(e.target.value)}
                value={email} placeholder='Enter Email' />
           </div>
+          
           <div className="ft">
               <label htmlFor="password"><strong>Password</strong></label>
               <input type="password"
@@ -51,6 +54,8 @@ function Login() {
           </div>
           <br></br>
           <button className="bts"><strong>Log in</strong></button>
+<br></br>
+         
           {/* <p>You are agree to our terms and policies</p> */}
           <Link to='/signup'><button className="bts">Create Account</button></Link> 
      
