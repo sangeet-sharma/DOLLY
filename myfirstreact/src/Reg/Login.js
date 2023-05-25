@@ -31,7 +31,7 @@ function Login() {
   return (
     <>
     <Nav/>
-    <div className='container'>
+    <div className='container2'>
     <div className="rt">
     <div>
       <fieldset>
