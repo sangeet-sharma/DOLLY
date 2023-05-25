@@ -5,7 +5,7 @@ fieldset{
 }
 .rt{
     margin:0;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite;  */
 }
 input[type=text]{
     resize: vertical;

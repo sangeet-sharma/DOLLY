@@ -18,7 +18,7 @@ function Trip()
             vital role nature plays in our lives, and we no longer
              know that we are part of the natural"*/
             />
-             <Link type="button" class="btn btn-primary" to='/SearchItem'>Single Room</Link>
+             <Link type="button" class="btn btn-primary" to='/Btn'>Single Room</Link>
              
             </div>
             
@@ -32,7 +32,7 @@ function Trip()
             vital role nature plays in our lives, and we no longer
              know that we are part of the natural"*/
             />
-           <Link type="button" class="btn btn-primary" to='/SearchItem1'>Doublex Room</Link>
+           <Link type="button" class="btn btn-primary" to='/Btn'>Double Room</Link>
             </div>
             <div className='complete'>
             <Tripdata 
@@ -44,7 +44,7 @@ function Trip()
             vital role nature plays in our lives, and we no longer
              know that we are part of the natural"*/
             />
-             <Link type="button" class="btn btn-primary" to='/SearchItem'>Presidential Suite</Link>
+             <Link type="button" class="btn btn-primary" to='/Btn'>Presidential Suite</Link>
              
             </div>
         </div>

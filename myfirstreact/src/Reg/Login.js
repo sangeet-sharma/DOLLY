@@ -30,8 +30,9 @@ function Login() {
   return (
     <>
     <Nav/>
-    <div className="rt">
-    <div className="">
+    <div>
+    <div className="rt1">
+    <div>
       <fieldset>
         <h2 align="center">Sign-in</h2>
     <form onSubmit={handleSubmit} action="">
@@ -57,6 +58,7 @@ function Login() {
           </form>
           </fieldset>
           </div>
+  </div>
   </div>
   <Footer/>
   </>

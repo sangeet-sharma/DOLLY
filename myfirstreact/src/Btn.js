@@ -87,7 +87,7 @@ export default function Btn() {
       <h1>Our Rooms Facility</h1>
       {roomList.map((result, id) => {
         return (
-          <div>
+          <div className="ds">
             
             <Card style={{ width: "18rem" }}>
               <Card.Img

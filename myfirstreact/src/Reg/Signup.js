@@ -15,6 +15,7 @@ function Signup() {
 e.preventDefault()
 axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>{
   console.log(response)
+  alert("Account Created Successfully!!")
   navigate("/login")
 }).catch(err=>{
   console.log(err)
@@ -25,7 +26,7 @@ axios.post("http://localhost:4000/signup",{name,email,password}).then(response=>
     <>
     <Nav/>
     <div className="rt">
-    <div className="">
+    <div>
       <fieldset>
         <legend align="center">Sign-Up</legend>
     <form onSubmit={handleSubmit} action="">

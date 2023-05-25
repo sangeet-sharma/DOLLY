@@ -62,15 +62,6 @@ await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
           <td>{result.Feature}</td>
           <td>{result.Food}</td>
           <td><img style={{width:"100px",height:"60px"}} src={`http://localhost:4000/photos/${result.file}`} 
-          
-          
-          
-          
-          
-          
-          
-          
-          
           alt="" /></td>
           <td onClick={()=>DeleteRoom(`${result.id}`)}> <span className='btn btn-danger'>Delete</span></td>
           <td><Link  to={`/updateRoom/${result.id}`}  className='btn btn-info'> Update</Link></td>

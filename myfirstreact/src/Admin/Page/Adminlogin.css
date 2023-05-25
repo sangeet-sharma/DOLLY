@@ -4,9 +4,10 @@ fieldset{
     margin-top:10%;
     margin-bottom: 70px;
 }
-.rt{
+.rtt{
+    /* text-align: center; */
     margin-left: 530px;
-     background-color:white; 
+      /* background-color:burlywood;  */
 }
 input[type=text]{
     resize: vertical;
