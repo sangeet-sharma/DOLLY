@@ -3,18 +3,34 @@ fieldset{
     width:40%;
     margin-top:0px;
 }
-/* .container{
-    display:flex;
-    justify-content: center;
+.container{
+    /* display:flex; */
+    /* justify-content: center; 
+    margin: 0;
+    align-items: center;
+    background-color: antiquewhite;
+     text-align: center;
+     width: 70%;  */
+    /* height: 60%; */
+    /* margin-left: 35%; */
+}  
+ .rt{
+     
+    /* display:flex;
+    justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    /* height: 100%; */
+
+    justify-content: center; 
+    margin: 0;
     align-items: center;
     /* background-color: antiquewhite; */
-    /* text-align: center;
-    width: 100%;
-    height: 60%;
-}  */
-.rt1{
-    width:100%;
-}
+     text-align: center;
+     width: 70%; 
+    /* height: 60%; */
+    margin-left: 35%;
+} 
 input[type=text]{
     resize: vertical;
     width:100%;

@@ -33,7 +33,7 @@ function Login() {
     <>
     <Nav/>
     <div>
-    <div className="rt1">
+    <div className="rt">
     <div>
       <fieldset>
         <h2 align="center">Sign-in</h2>
