@@ -51,15 +51,15 @@ function Try({ match }) {
 
   //  }
   // }
-  const Booknow = async () => {
-    try {
-      const response = await axios.post(`http://localhost:4000/hotelbook`, formdata);
-      const data = response.data;
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const Booknow = async () => {
+  //   try {
+  //     const response = await axios.post(`http://localhost:4000/hotelbook`, );
+  //     const data = response.data;
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   useEffect(() => {
 
     const fetchRoomDetails = async () => {
