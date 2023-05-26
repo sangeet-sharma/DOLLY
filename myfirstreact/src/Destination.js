@@ -17,13 +17,11 @@ const Destination=()=>
             <Destinationdata
             ClassName="first-des-revrse"
            heading="Swimming Pool And Other Services."
-           text="  The alarming imbalance between humans and our natural
-           world has deepened. As a result, we have lost our 
-           connection with nature, we lack understanding of the 
-           vital role nature plays in our lives, and we no longer
-            know that we are part of the natural world. Plant Spirit Medicine:
-             Growing Awareness of Nature, opens the possibility for you to start
-              a personal journey of discovery towards balance with nature. "
+           text="  When someone is choosing which hotel to stay in during a business trip 
+           or vacation, the choice often comes down to the hotel’s amenities. 
+           For many people, a swimming pool is one amenity that will impact 
+           the decision they make. In today’s world, swimming pools have become
+            an integral element of any modern hotel. "
               img1={require('./img/dining-img2.jpg')}
               img2={require('./img/2.jpg')}/>
         </div>

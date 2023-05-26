@@ -6,7 +6,7 @@ function Trip()
   return(
     <div className='trip'>
         <h1>Our Rooms</h1>
-        <p className='pa'>    You can discover rooms using Google Maps.</p>
+        <p className='pa'> </p>
         <div className='tripcard'>
             <div className='complete'>
             <Tripdata 
