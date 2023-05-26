@@ -174,7 +174,7 @@ const Register = () => {
         </div>
         
         <div className='RegisterPageLeftButton'>
-          <button type='submit'>Register</button>
+          <button className='bts' type='submit'>Sign up</button>
         </div>
 
         <div className='RegisterPageLeftLink'>
