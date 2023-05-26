@@ -89,6 +89,7 @@ import { useFormik } from 'formik';
 import { signUpSchema } from '../schemas';
 import axios from 'axios';
 import Nav from '../Nav';
+import Footer from '../Footer';
 import './Signup.css';
 const initialValues = {
   name: "",
@@ -110,10 +111,10 @@ const Register = () => {
       });
   }
  
-  // const navigate=useNavigate()
+   //const navigate=useNavigate()
   // return (
      
-    <Nav/>
+    
     // <div className="container2">
     // <div className="rt">
     // <div>
@@ -148,6 +149,8 @@ const Register = () => {
   console.log(errors)
 
   return (
+    <>
+    <Nav/>
     <div className="container2">
     <div className="rt">
       <fieldset>
@@ -207,10 +210,9 @@ const Register = () => {
     </form>
     </fieldset>
     </div>
-
-      
-
-</div>
+    </div>
+    <Footer/>
+    </>
 // </form>
 
   )}
