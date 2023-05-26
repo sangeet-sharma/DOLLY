@@ -14,9 +14,11 @@ function Login() {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
+    // alert("please fill the details")
     axios.post("http://localhost:4000/login",{email,password})
     .then(response=>{
       console.log(response)
+      
       //  alert("Please fill the details..")
          alert("Login Successfully....")
         // localStorage.setItem("token",true)

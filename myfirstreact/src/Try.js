@@ -7,6 +7,7 @@ import Nav from './Nav';
 import Footer from './Footer';
 import axios from "axios";
 import "./Try.css";
+import StripeCheckout from 'react-stripe-checkout';
 function Try({ match }) {
   const { id } = useParams();
   const [room, setRoom] = useState([]);
@@ -64,6 +65,9 @@ function Try({ match }) {
     };
     fetchRoomDetails();
   }, []);
+  function onToken(token) {
+    console.log(token)
+  }
   return (
     <>
     <Nav/>
@@ -113,7 +117,7 @@ function Try({ match }) {
           <br></br>
           <div className="col-md-5">
            <b>
-            <p>Name: </p>
+            {/* <p>Name: </p> */}
             <p>FromDate:{checkInDate}</p>
             <p>ToDate:{checkOutDate}</p>
             <p>TotalDyas:{totaldays} </p>
@@ -122,7 +126,14 @@ function Try({ match }) {
             
             </b>
         
-           
+            <StripeCheckout
+              amount={room.price * totaldays * 100}
+              token={onToken}
+              currency='INR'
+              stripeKey="pk_test_51NAsJHSCABOBJOIRobyuV1obP3qmrZhpWIVEWTRHGDvCrticDev8KXbnD4Rg9tc9lgxiP3cpobW1zmlZnbfEyDCq00U6NJuL1q"
+            >
+              <button className="btn btn-primary">PayNow{" "}</button>
+            </StripeCheckout>
           </div>
           {/* <button onClick={Booknow} className="ut" >PayNow</button> */}
 

@@ -99,18 +99,20 @@ export default function Btn() {
                     src={`http://localhost:4000/photos/${result.file}`}
                   />
                   <Card.Body>
-                    <Card.Title>Price : {result.price}</Card.Title>
-                    <Card.Text>RoomType: {result.roomType}</Card.Text>
+                    <Card.Title><b>Price</b> : {result.price}</Card.Title>
+                    <Card.Text><b>RoomType</b>: {result.roomType}</Card.Text>
 
-                    <Card.Text>RoomCapacity: {result.roomCapacity}</Card.Text>
-                    <Card.Text>Facility: {result.Facility}</Card.Text>
-                    <Card.Text>Feature: {result.Feature}</Card.Text>
-                    <Card.Text>Food: {result.Food}</Card.Text>
-                    <Card.Text>Fromdate: {setfromDate}</Card.Text>
-                    <Link
+                    <Card.Text><b>RoomCapacity</b>: {result.roomCapacity}</Card.Text>
+                    <Card.Text><b>Facility</b>: {result.Facility}</Card.Text>
+                    <Card.Text><b>Feature</b>: {result.Feature}</Card.Text>
+                    <Card.Text><b>Food</b>: {result.Food}</Card.Text>
+                    {/* <Card.Text>Fromdate: {setfromDate}</Card.Text> */}
+                    {/* <Link type="btn" to='/login'> */}
+                      <Link
                       type="btn"
                       to={`/Try/${result.id}`}
                     >
+                    
                       <Button variant="primary">Booking Now</Button>
                     </Link>
                   </Card.Body>
