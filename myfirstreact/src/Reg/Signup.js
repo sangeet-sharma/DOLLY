@@ -81,9 +81,7 @@
 // export default Signup;
 
 
-// import React, { useState } from 'react'
-// import '../Auth/Register.css';
-// import UserLogin from '../Images/userLogin.jpg';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { signUpSchema } from '../schemas';
@@ -111,33 +109,9 @@ const Register = () => {
       });
   }
  
-   //const navigate=useNavigate()
-  // return (
-     
-    
-    // <div className="container2">
-    // <div className="rt">
-    // <div>
-    //   <fieldset>
-    //     <legend align="center"><i>Sign-Up</i></legend>
-    // <form onSubmit={handleSubmit} action="">
-    // <div className="ft">
-    //           <label htmlFor="name"><strong>Name:</strong></label>
-    //           <input type="text" name='name'
-    //            value={name} 
-    //           onChange={(e)=>setName(e.target.value)} placeholder='Enter Name'  />
-             
-    //       </div>
-    //    <div className="ft">
-    //           <label htmlFor="email"><strong>Email:</strong></label>
-    //           <input type="email"
-    //           name='email' value={email}   
-    //           onChange={(e)=>setEmail(e.target.value)}
-    //           placeholder='Enter Email' />
+   
          
-
-
-  const { values, handleBlur, touched, handleChange, handleSubmit, errors } = useFormik({
+   const { values, handleBlur, touched, handleChange, handleSubmit, errors } = useFormik({
     initialValues: initialValues,
     validationSchema: signUpSchema,
     onSubmit: (values, action) => {
@@ -213,7 +187,6 @@ const Register = () => {
     </div>
     <Footer/>
     </>
-// </form>
 
   )}
 

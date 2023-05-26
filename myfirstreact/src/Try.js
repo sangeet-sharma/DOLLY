@@ -3,6 +3,8 @@ import "./Bookingsrccss.css";
 import moment from "moment";
 import { DatePicker, Space } from "antd";
 import { useParams } from "react-router-dom";
+import Nav from './Nav';
+import Footer from './Footer';
 import axios from "axios";
 import "./Try.css";
 function Try({ match }) {
@@ -64,8 +66,9 @@ function Try({ match }) {
   }, []);
   return (
     <>
+    <Nav/>
       <div className="container">
-        <h1>Booking Details....</h1>
+        <h1>Booking Details</h1>
         <hr></hr>
         <div className="row justify-center mt-5">
 
@@ -125,6 +128,7 @@ function Try({ match }) {
 
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

@@ -3,6 +3,8 @@ import {Link, useNavigate} from 'react-router-dom'
 // import Signup from './Signup';
 // import axios from 'axios';
 import './Adminlogin.css';
+import Nav from '../../Nav';
+import Footer from '../../Footer';
 import axios from 'axios';
 
 function Adminlogin() {
@@ -28,6 +30,8 @@ function Adminlogin() {
   }
 
   return (
+    <>
+    <Nav/>
     <div className="container2">
     <div className="rt">
     <div className="">
@@ -58,6 +62,8 @@ function Adminlogin() {
           </div>
   </div>
   </div>
+  <Footer/>
+  </>
   )
 }
 
