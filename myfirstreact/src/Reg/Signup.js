@@ -172,7 +172,7 @@ const Register = () => {
 {errors.password && touched.password ?
           (<p className='form-error text-danger'>{errors.password}</p>) : null}
         </div>
-        
+        <br></br>
         <div className='RegisterPageLeftButton'>
           <button className='bts' type='submit'>Sign up</button>
         </div>
