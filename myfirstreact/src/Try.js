@@ -158,7 +158,7 @@ function Try({ match }) {
               <button className="btn btn-primary">PayNow{" "}</button>
             </StripeCheckout>
           </div>
-          <button onClick={Booknow} className="ut" >PayNow</button>
+          <button  className="ut" >PayNow</button>
 
         </div>
       </div>
