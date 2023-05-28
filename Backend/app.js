@@ -3,14 +3,31 @@ const express = require("express");
 const cors = require("cors");
 const momnet = require("moment");
 const bodyParser = require("body-parser");
+const cookieParser= require("cookie-parser");
 const multer = require("multer");
 const path = require("path");
+const session = require("express-session")
+const MySQLStore = require("express-mysql-session")(session )
 const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("uploads"));
-app.use(cors());
+app.use(cors({
+  origin:["http://localhost:3000"],
+  methods:["GET","POST"],
+  Credential:true
+}));
+app.use(cookieParser())
+app.use(session({
+  key:"username",
+  secret:"subscribe",
+  resave:false,
+  saveUninitialized:false,
+  cookie:{
+    expire:60*60*24,
+  },
+}))
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/photos");
@@ -41,7 +58,6 @@ app.post("/signup", (req, resp) => {
     }
   );
 });
-
 app.post("/login", (req, resp) => {
   const sql = "SELECT * FROM login WHERE email = ? AND password =?";
   mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
@@ -49,12 +65,36 @@ app.post("/login", (req, resp) => {
       return resp.json("error");
     }
     if (result.length > 0) {
-      return resp.json(result);
-    } else {
-      return resp.json({ Message: "login Failed..." });
+      return resp.send({ status: "login successfully",result });
+    } else 
+    {
+    return resp.json({ Message: "login Failed..." });
     }
   });
 });
+// app.get("/login", (req, resp) => {
+// if(  req.session.user){
+//   resp.send({user:req.session.user});
+//   }else{
+//     resp.send({error});
+// }
+// })
+// app.post("/login", (req, resp) => {
+//   const sql = "SELECT * FROM login WHERE email = ? AND password =?";
+//   mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
+//     if (error) {
+//       return resp.json("error");
+//     }
+//     if (result.length > 0) {
+//       req.session.user= result;
+//       console.log( req.session.user);
+//       return resp.json(result);
+      
+//     } else {
+//       return resp.json({ Message: "login Failed..." });
+//     }
+//   });
+// });
 
 app.post("/postCategory", (req, resp) => {
   const sql =
