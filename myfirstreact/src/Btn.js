@@ -11,10 +11,13 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 //import CheckHotelPage from './CheckHotelPage';
 import { DatePicker, Space } from "antd";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const { RangePicker } = DatePicker;
 export default function Btn() {
-   const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const [fromDate, setfromDate] = useState();
   const [toDate, settoDate] = useState();
 
@@ -83,40 +86,45 @@ export default function Btn() {
     // </div>
     // </div>
     <>
-    <Nav/>
+      <Nav />
       <h1>Our Rooms Facility</h1>
       {roomList.map((result, id) => {
         return (
-          <div className="ds">
-            
-            <Card style={{ width: "18rem" }}>
-              <Card.Img
-                variant="top"
-                src={`http://localhost:4000/photos/${result.file}`}
-              />
-              <Card.Body>
-                <Card.Title>Price : {result.price}</Card.Title>
-                <Card.Text>RoomType: {result.roomType}</Card.Text>
+          <Container>
+            <Row xs="auto" className="justify-content-md-center row1">
+              <Col>
+                <Card style={{ width: "18rem" }}>
+                  <Card.Img
+                    variant="top"
+                    src={`http://localhost:4000/photos/${result.file}`}
+                  />
+                  <Card.Body>
+                    <Card.Title><b>Price</b> : {result.price}</Card.Title>
+                    <Card.Text><b>RoomType</b>: {result.roomType}</Card.Text>
 
-                <Card.Text>RoomCapacity: {result.roomCapacity}</Card.Text>
-                <Card.Text>Facility: {result.Facility}</Card.Text>
-                <Card.Text>Feature: {result.Feature}</Card.Text>
-                <Card.Text>Food: {result.Food}</Card.Text>
-                <Card.Text>Fromdate: {setfromDate}</Card.Text>
-                <Link
-                  type="btn"
-                  to={`/Try/${result.id}`}
-                >
-                  <Button variant="primary">Booking Now</Button>
-                </Link>
-              </Card.Body>
-            </Card>
-            <div></div>
-          </div>
+                    <Card.Text><b>RoomCapacity</b>: {result.roomCapacity}</Card.Text>
+                    <Card.Text><b>Facility</b>: {result.Facility}</Card.Text>
+                    <Card.Text><b>Feature</b>: {result.Feature}</Card.Text>
+                    <Card.Text><b>Food</b>: {result.Food}</Card.Text>
+                    {/* <Card.Text>Fromdate: {setfromDate}</Card.Text> */}
+                    {/* <Link type="btn" to='/login'> */}
+                      <Link
+                      type="btn"
+                      to={`/Try/${result.id}`}
+                    >
+                    
+                      <Button variant="primary">Booking Now</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+                </Col>
+              </Row>
+
+                </Container>
         );
       })}
       {/* <Link type="btn" className="siButton" to='/CheckHotelPage'>Book Now</Link> */}
-    <Footer/>
+      <Footer />
     </>
   );
 }

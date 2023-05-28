@@ -78,7 +78,7 @@ const Contact=()=>{
                         <textarea 
                         className="form-control rounded-0" id="message"
                          name="message"
-                         placeholder="Write Your Message Here......"
+                         placeholder=" Message"
                          rows='5'>
                          </textarea>
                          <br/> 
@@ -100,3 +100,4 @@ const Contact=()=>{
         }
 
 export default Contact;
+

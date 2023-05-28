@@ -3,18 +3,27 @@ fieldset{
     width:40%;
     margin-top:0px;
 }
-/* .container{
-    display:flex;
-    justify-content: center;
+.container2{ 
+    /* display:flex; */
+    /* justify-content: center; 
+    /* margin: 0;
+    align-items: center; */
+    background-color: antiquewhite; 
+      /* text-align: center; */
+     width: 70%;   
+     /* height: 60%;  */
+    margin-left:20%;
+ }  
+ .rt{
+     justify-content: center; 
+    /* margin: 0; */
     align-items: center;
     /* background-color: antiquewhite; */
-    /* text-align: center;
-    width: 100%;
-    height: 60%;
-}  */
-.rt1{
-    width:100%;
-}
+     text-align: center;
+     width:70%; 
+    /* height: 60%; */
+    margin-left: 35%;
+} 
 input[type=text]{
     resize: vertical;
     width:100%;

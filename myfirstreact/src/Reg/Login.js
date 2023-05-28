@@ -35,50 +35,37 @@ function Login() {
   };
   return (
     <>
-      <Nav />
-      <div>
-        <div className="rt1">
-          <div>
-            <fieldset>
-              <h2 align="center">Sign-in</h2>
-              <form onSubmit={handleSubmit} action="">
-                <div className="ft">
-                  <label htmlFor="email">
-                    <strong>Email</strong>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    placeholder="Enter Email"
-                  />
-                </div>
-
-                <div className="ft">
-                  <label htmlFor="password">
-                    <strong>Password</strong>
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    placeholder="Enter Password"
-                  />
-                </div>
-                <br></br>
-                <button className="bts">
-                  <strong>Log in</strong>
-                </button>
-                <br></br>
-
-                {/* <p>You are agree to our terms and policies</p> */}
-                <Link to="/signup">
-                  <button className="bts">Create Account</button>
-                </Link>
-              </form>
-            </fieldset>
+    <Nav/>
+    <div>
+    <div className="rt1">
+    <div>
+      <fieldset>
+        <h2 align="center">Sign-in</h2>
+    <form onSubmit={handleSubmit} action="">
+       <div className="ft">
+              <label htmlFor="email"><strong>Email</strong></label>
+              <input type="email" name='email'
+              onChange={(e)=>setEmail(e.target.value)}
+               value={email} placeholder='Enter Email' />
+          </div>
+          
+          <div className="ft">
+              <label htmlFor="password"><strong>Password</strong></label>
+              <input type="password"
+               name='password'
+               onChange={(e)=>setPassword(e.target.value)}
+                value={password}
+              placeholder='Enter Password' />
+          </div>
+          <br></br>
+          <button className="bts"><strong>Log in</strong></button>
+<br></br>
+         
+          {/* <p>You are agree to our terms and policies</p> */}
+          <Link to='/signup'><button className="bts">Create Account</button></Link> 
+     
+          </form>
+          </fieldset>
           </div>
         </div>
       </div>
