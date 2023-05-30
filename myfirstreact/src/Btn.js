@@ -24,7 +24,7 @@ export default function Btn() {
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
   const [roomList, SetRoomList] = useState([]);
-
+const[data, SetData]= useState([]);
   const GetRoomList = async () => {
     await axios
       .get("http://localhost:4000/TotalRoom/Get")
@@ -34,7 +34,18 @@ export default function Btn() {
       .catch((err) => {
         console.log(err);
       });
-  };
+  };    const GetsessionData = async () => {
+    await axios
+      .get("http://localhost:4000//session")
+      .then((response) => {
+        SetData(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };  useEffect(() => {
+    GetsessionData();
+  }, []);
 
   useEffect(() => {
     GetRoomList();
@@ -88,6 +99,8 @@ export default function Btn() {
     <>
       <Nav />
       <h1>Our Rooms Facility</h1>
+
+      <h2> datacan :::{data}</h2> 
       {roomList.map((result, id) => {
         return (
           <Container>

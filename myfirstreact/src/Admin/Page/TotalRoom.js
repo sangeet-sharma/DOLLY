@@ -6,9 +6,8 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 const TotalRoom = () => {
-   const [roomList,SetRoomList] = useState([])
-
-   const GetRoomList  = async()=>{
+const [roomList,SetRoomList] = useState([])
+const GetRoomList  = async()=>{
 await axios.get("http://localhost:4000/TotalRoom/Get").then(response=>{
     SetRoomList(response.data)
 }).catch(err=>{

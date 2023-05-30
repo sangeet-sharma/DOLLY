@@ -14,15 +14,11 @@ function Try({ match }) {
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const [name, setName] = useState("");
-  const [userData, setUserData] = useState(null);
   const sd = moment(checkInDate, "YYYY-MM-DD");
   const ed = moment(checkOutDate, "YYYY-MM-DD");
-
   const totaldays = moment.duration(ed.diff(sd)).asDays();
   const totalrent = room.price * totaldays;
 
-
-  
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("username"));
     if (currentUser && currentUser.name) {
@@ -41,11 +37,11 @@ function Try({ match }) {
   // };
   
     // Retrieve data from localStorage
-    const storedData = localStorage.getItem("username");
+    // const storedData = localStorage.getItem("username");
 
     // Update the state with the retrieved data
 
-    const parsedData = (JSON.parse(storedData).name);
+    // const parsedData = (JSON.parse(storedData).name);
 
     // Update the state with the retrieved data
    
@@ -94,6 +90,21 @@ function Try({ match }) {
 
     
   // } ,[])
+  useEffect(() => {
+    const fetchUserName = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/username");
+        const data = response.data;
+        setName(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserName();
+  }, []);
+
+  const storedData = name;
   return (
     <>
     <Nav/>
@@ -141,7 +152,7 @@ function Try({ match }) {
           <div className="col-md-5">
            <b>
             {/* <p>Name: </p> */}
-            <p>FromDate:{checkInDate}</p>
+            <>FromDate:{checkInDate}  Name:{storedData}</>
             <p>ToDate:{checkOutDate}</p>
             <p>TotalDyas:{totaldays} </p>
             <p>RoomPrice:{room.price}</p>
@@ -151,13 +162,17 @@ function Try({ match }) {
         
             <StripeCheckout
               amount={room.price * totaldays * 100}
-              token={onToken}
+              // token={onToken}
               currency='INR'
               stripeKey="pk_test_51NAsJHSCABOBJOIRobyuV1obP3qmrZhpWIVEWTRHGDvCrticDev8KXbnD4Rg9tc9lgxiP3cpobW1zmlZnbfEyDCq00U6NJuL1q"
             >
               <button className="btn btn-primary">PayNow{" "}</button>
             </StripeCheckout>
           </div>
+          <div>
+      <h2>User Details</h2>
+      
+    </div>
           <button  className="ut" >PayNow</button>
 
         </div>

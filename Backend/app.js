@@ -1,33 +1,52 @@
 const mysql = require("./db_connection/connection");
 const express = require("express");
+const msql = require("mysql");
 const cors = require("cors");
 const momnet = require("moment");
 const bodyParser = require("body-parser");
-const cookieParser= require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const path = require("path");
-const session = require("express-session")
-const MySQLStore = require("express-mysql-session")(session )
+const session = require("express-session");
+const MySQLStore = require("express-mysql-session")(session);
 const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("uploads"));
-app.use(cors({
-  origin:["http://localhost:3000"],
-  methods:["GET","POST"],
-  Credential:true
-}));
-app.use(cookieParser())
-app.use(session({
-  key:"username",
-  secret:"subscribe",
-  resave:false,
-  saveUninitialized:false,
-  cookie:{
-    expire:60*60*24,
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    Credential: true,
+  })
+);
+
+var sessionStore = new MySQLStore(
+  {
+    expiration: 10800000,
+    createDatabaseTable: true,
+    schema: {
+      tableName: "sessiontbl",
+      columnNames: {
+        session_id: "sesssion_id",
+        expires: "expires",
+        data: "data",
+      },
+    },
   },
-}))
+  mysql
+);
+
+app.use(
+  session({
+    key: "keyin",
+    secret: "my secret",
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/photos");
@@ -65,13 +84,34 @@ app.post("/login", (req, resp) => {
       return resp.json("error");
     }
     if (result.length > 0) {
-      return resp.send({ status: "login successfully",result });
-    } else 
-    {
-    return resp.json({ Message: "login Failed..." });
+      req.session.userinfo = result.name;
+
+      return resp.json("login",req.session.userinfo);
+    } else {
+      return resp.json({ Message: "login Failed..." });
     }
   });
 });
+app.get("/", function (req, res) {
+  if (req.session.userinfo) {
+    res.send("Hello " + req.session.userinfo + " Welcome");
+  } else {
+    res.send("Not Logged In");
+  }
+});
+// app.post("/login", (req, resp) => {
+//   const sql = "SELECT * FROM login WHERE email = ? AND password =?";
+//   mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
+//     if (error) {
+//       return resp.json("error");
+//     }
+//     if (result.length > 0) {
+//       return resp.send({ status: "login successfully",result });
+//     } else
+//     {
+//     return resp.json({ Message: "login Failed..." });
+//     }
+//   });
 // app.get("/login", (req, resp) => {
 // if(  req.session.user){
 //   resp.send({user:req.session.user});
@@ -89,7 +129,7 @@ app.post("/login", (req, resp) => {
 //       req.session.user= result;
 //       console.log( req.session.user);
 //       return resp.json(result);
-      
+
 //     } else {
 //       return resp.json({ Message: "login Failed..." });
 //     }
@@ -324,21 +364,20 @@ app.post("/hotelbook", async (req, resp) => {
 //   const sql = "INSERT INTO dummy (`fromdate`) VALUES (?)";
 //   try{
 //   await mysql.query(sql, [req.body.id], (error, result) => {
-//       if (error) 
+//       if (error)
 //       {
 //         console.error(error);
 // return res.status(500).json({ error: "Error inserting data into dummy table" });
 //       }
 //       return res.json(result);
 //     });
-//   } 
-//   catch (error) 
+//   }
+//   catch (error)
 //   {
 //     console.error(error);
 //     return res.status(500).json({ error: "An unexpected error occurred" });
 //   }
 // });
-
 
 // app.post("/dummy", async (req, resp) => {
 //   const sql = "INSERT INTO dummy(`fromdate`) VALUES(?)";
@@ -346,11 +385,11 @@ app.post("/hotelbook", async (req, resp) => {
 //     sql,
 //     [req.body.id],
 //     (error, result) => {
-//       if (error) 
+//       if (error)
 //       {
 //        return resp.status(500).json({ error: "Error retrieving room details" });
-//       } 
-// else 
+//       }
+// else
 //       {
 // return resp.json(result);
 //       }
