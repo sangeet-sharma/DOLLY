@@ -17,18 +17,18 @@ function Login() {
     // alert("please fill the details")
     axios.post("http://localhost:4000/login",{email,password})
     .then(response=>{
-      console.log(response)
-      
-      //  alert("Please fill the details..")
-         alert("Login Successfully....")
-        // localStorage.setItem("token",true)
-        localStorage.setItem("currentuser", JSON.stringify(response.data));
-
+      if(response.data.status==="login successfully"){
+        alert("Login Successfully....");
+        localStorage.setItem("token",true);
+    
+    
         navigate("/Btn")
+      }
       console.log(response)
       
     }).catch(err=>
       {
+        
       console.log(err)
     })
   }
