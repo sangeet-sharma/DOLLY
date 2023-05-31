@@ -5,14 +5,14 @@ const cors = require("cors");
 const momnet = require("moment");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const app = express();
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -68,11 +68,10 @@ const upload = multer({
 });
 
 app.post("/signup", (req, resp) => {
- 
   const sql = "INSERT INTO login(`name`,`email`,`password`) VALUES(?,?,?)";
   mysql.query(
     sql,
-    [req.body.name, req.body.email,hashpassword ],
+    [req.body.name, req.body.email, hashpassword],
     (error, result) => {
       if (error) {
         return resp.json("Error", error);
@@ -80,10 +79,22 @@ app.post("/signup", (req, resp) => {
         return resp.json(result);
       }
     }
-
   );
 });
 
+app.post("/login", (req, resp) => {
+  const sql = "SELECT * FROM login WHERE email = ? AND password =?";
+  mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
+    if (error) {
+      return resp.json("error");
+    }
+    if (result.length > 0) {
+      return resp.json({ status: "login successfully" });
+    } else {
+      return resp.json({ Message: "login Failed..." });
+    }
+  });
+});
 
 // app.get("/", function (req, res) {
 //   if (req.session.userinfo) {
@@ -92,20 +103,7 @@ app.post("/signup", (req, resp) => {
 //     res.send("Not Logged In");
 //   }
 // });
-app.post("/login", (req, resp) => {
-   const sql = "SELECT * FROM login WHERE email = ? AND password =?";
-   mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
-    if (error) {
-     return resp.json("error");
-     }
-    if (result.length > 0) {
-      return resp.send({ status: "login successfully",result });
-    } else
-    {
-    return resp.json({ Message: "login Failed..." });
-    }
-});
-});
+
 //app.get("/login", (req, resp) => {
 // if(  req.session.user){
 //   resp.send({user:req.session.user});
