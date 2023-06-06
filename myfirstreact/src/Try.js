@@ -3,31 +3,22 @@ import "./Bookingsrccss.css";
 import moment from "moment";
 // import { DatePicker, Space } from "antd";
 import { useParams } from "react-router-dom";
-import Nav from './Nav';
-import Footer from './Footer';
+import Nav from "./Nav";
+import Footer from "./Footer";
 import axios from "axios";
 import "./Try.css";
-import StripeCheckout from 'react-stripe-checkout';
+import StripeCheckout from "react-stripe-checkout";
 function Try({ match }) {
   const { id } = useParams();
   const [room, setRoom] = useState([]);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState([]);
   const sd = moment(checkInDate, "YYYY-MM-DD");
   const ed = moment(checkOutDate, "YYYY-MM-DD");
   const totaldays = moment.duration(ed.diff(sd)).asDays();
   const totalrent = room.price * totaldays;
 
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("username"));
-    if (currentUser && currentUser.name) {
-      setName(currentUser.name);
-    }
-  }, []);
-  
-
-  
   // const BookingDetails = {
   //   // userid:JSON.parse(localstorage.getItem('currentUser')).id,
   //   checkInDate,
@@ -35,17 +26,16 @@ function Try({ match }) {
   //   totalrent,
   //   totaldays,
   // };
-  
-    // Retrieve data from localStorage
-    // const storedData = localStorage.getItem("username");
 
-    // Update the state with the retrieved data
+  // Retrieve data from localStorage
+  const user_data = localStorage.getItem("userDataDivya");
 
-    // const parsedData = (JSON.parse(storedData).name);
+  //Update the state with the retrieved data
 
-    // Update the state with the retrieved data
-   
-  
+  const parsedData = JSON.parse(user_data).name;
+
+  // Update the state with the retrieved data
+
   //  try
   //  {
   //  const result = await axios.post("http://localhost:4000/dummy",id);
@@ -86,33 +76,30 @@ function Try({ match }) {
   //     console.log(err)
   //   })
 
-   
-
-    
   // } ,[])
+
   useEffect(() => {
-    const fetchUserName = async () => {
+    const fetchSessionData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/username");
+        const response = await axios.get("http://localhost:4000/getsessiondata");
         const data = response.data;
-        setName(data);
+        setName(data.name);
       } catch (error) {
         console.error(error);
       }
     };
-
-    fetchUserName();
+  
+    fetchSessionData();
   }, []);
+  
 
-  const storedData = name;
   return (
     <>
-    <Nav/>
+      <Nav />
       <div className="container">
         <h1>Booking Details</h1>
         <hr></hr>
-       
-     
+        <h1>Welcome, {name}</h1>
 
         <div className="row justify-center mt-5">
           <div className="col-md-5">
@@ -150,34 +137,32 @@ function Try({ match }) {
           <br></br>
           <br></br>
           <div className="col-md-5">
-           <b>
-            {/* <p>Name: </p> */}
-            <>FromDate:{checkInDate}  Name:{storedData}</>
-            <p>ToDate:{checkOutDate}</p>
-            <p>TotalDyas:{totaldays} </p>
-            <p>RoomPrice:{room.price}</p>
-            <p>TotalAmonut:{totalrent}</p>
-            
+            <b>
+             
+              <>FromDate:{checkInDate}</>
+              <p>ToDate:{checkOutDate}</p>
+              <p>TotalDyas:{totaldays} </p>
+              <p>RoomPrice:{room.price}</p>
+              <p>TotalAmonut:{totalrent}</p>
             </b>
-        
+
             <StripeCheckout
               amount={room.price * totaldays * 100}
               // token={onToken}
-              currency='INR'
+              currency="INR"
               stripeKey="pk_test_51NAsJHSCABOBJOIRobyuV1obP3qmrZhpWIVEWTRHGDvCrticDev8KXbnD4Rg9tc9lgxiP3cpobW1zmlZnbfEyDCq00U6NJuL1q"
             >
-              <button className="btn btn-primary">PayNow{" "}</button>
+              <button className="btn btn-primary">PayNow </button>
             </StripeCheckout>
           </div>
           <div>
-      <h2>User Details</h2>
-      
-    </div>
-          <button  className="ut" >PayNow</button>
-
+            <h2>User Details</h2>
+            {/* <p>name:{parsedData.name}</p>  */}
+          </div>
+          <button className="ut">PayNow</button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

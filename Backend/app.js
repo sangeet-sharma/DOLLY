@@ -5,13 +5,11 @@ const cors = require("cors");
 const momnet = require("moment");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const session = require("express-session");
-const MySQLStore = require("express-mysql-session")(session);
-const app = express();
 
+const app = express();
 const bcrypt = require("bcryptjs");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,32 +23,13 @@ app.use(
     Credential: true,
   })
 );
-
-var sessionStore = new MySQLStore(
-  {
-    expiration: 10800000,
-    createDatabaseTable: true,
-    schema: {
-      tableName: "sessiontbl",
-      columnNames: {
-        session_id: "sesssion_id",
-        expires: "expires",
-        data: "data",
-      },
-    },
-  },
-  mysql
-);
-
 app.use(
   session({
-    key: "keyin",
-    secret: "my secret",
-    store: sessionStore,
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+      resave: false,
+      saveUninitialized: true,
+      secret: "anyrandomstring",
+    })
+  );
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/photos");
@@ -89,44 +68,24 @@ app.post("/login", (req, resp) => {
       return resp.json("error");
     }
     if (result.length > 0) {
-      return resp.json({ status: "login successfully" });
+      const name = result[0].name;
+      // sess.email = result.email;
+      req.session.user = result[0].name;
+      req.session.email = result[0].email;
+      console.log(req.session.user);
+      console.log(req.session.email);
+      return resp.json(result);
     } else {
-      return resp.json({ Message: "login Failed..." });
+      return resp.json({ status: "login Failed..." });
     }
   });
 });
 
-// app.get("/", function (req, res) {
-//   if (req.session.userinfo) {
-//     res.send("Hello " + req.session.userinfo + " Welcome");
-//   } else {
-//     res.send("Not Logged In");
-//   }
-// });
+app.get("/getsessiondata", (req, resp) => {
+  console.log(req.session.user);
+  return resp.json({ name: req.session.user });
+});
 
-//app.get("/login", (req, resp) => {
-// if(  req.session.user){
-//   resp.send({user:req.session.user});
-//   }else{
-//     resp.send({error});
-// }
-// })
-// app.post("/login", (req, resp) => {
-//   const sql = "SELECT * FROM login WHERE email = ? AND password =?";
-//   mysql.query(sql, [req.body.email, req.body.password], (error, result) => {
-//     if (error) {
-//       return resp.json("error");
-//     }
-//     if (result.length > 0) {
-//       req.session.user= result;
-//       console.log( req.session.user);
-//       return resp.json(result);
-
-//     } else {
-//       return resp.json({ Message: "login Failed..." });
-//     }
-//   });
-// });
 
 app.post("/postCategory", (req, resp) => {
   const sql =

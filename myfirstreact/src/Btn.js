@@ -6,6 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useParams } from "react-router-dom";
 import "./Btn.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
@@ -16,7 +17,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const { RangePicker } = DatePicker;
-export default function Btn() {
+
+export default function Btn({match}) {
   const [show, setShow] = useState(false);
   const [fromDate, setfromDate] = useState();
   const [toDate, settoDate] = useState();
@@ -25,6 +27,7 @@ export default function Btn() {
   // const handleShow = () => setShow(true);
   const [roomList, SetRoomList] = useState([]);
 const[data, SetData]= useState([]);
+const { name } = useParams();
   const GetRoomList = async () => {
     await axios
       .get("http://localhost:4000/TotalRoom/Get")
@@ -34,18 +37,7 @@ const[data, SetData]= useState([]);
       .catch((err) => {
         console.log(err);
       });
-  };    const GetsessionData = async () => {
-    await axios
-      .get("http://localhost:4000//session")
-      .then((response) => {
-        SetData(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };  useEffect(() => {
-    GetsessionData();
-  }, []);
+  };    
 
   useEffect(() => {
     GetRoomList();
@@ -100,7 +92,6 @@ const[data, SetData]= useState([]);
       <Nav />
       <h1>Our Rooms Facility</h1>
 
-      <h2> datacan :::{data}</h2> 
       {roomList.map((result, id) => {
         return (
           <Container>
@@ -125,7 +116,7 @@ const[data, SetData]= useState([]);
                       type="btn"
                       to={`/Try/${result.id}`}
                     >
-                    
+                     <Card.Text><b>Food</b>: {(name)}</Card.Text>
                       <Button variant="primary">Booking Now</Button>
                     </Link>
                   </Card.Body>
